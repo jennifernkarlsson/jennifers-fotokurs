@@ -33,7 +33,7 @@ export function AdminHeader({ wide = false }) {
           aria-label="Adminmeny"
           onClick={() => setOpen(false)}
         >
-          <Link to="/admin">Hem</Link>
+          <a href="#" aria-disabled="true" onClick={(e) => e.preventDefault()}>Hem</a>
           <Link to="/admin">Workshops</Link>
           <a href="#" aria-disabled="true" onClick={(e) => e.preventDefault()}>Inställningar</a>
         </nav>
