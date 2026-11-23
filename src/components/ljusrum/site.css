@@ -182,7 +182,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 4px;
   min-height: 40px;
   padding: 0 10px;
   background: var(--ljus-white);
@@ -192,19 +192,14 @@
   font-weight: 700;
   line-height: 24px;
   cursor: pointer;
-  transition: border-color 0.15s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
-.time-option:hover { border-color: var(--ljus-extra); }
-.time-option.is-selected { border-color: var(--ljus-primary); box-shadow: inset 0 0 0 1px var(--ljus-primary); }
+/* Figma-komponent Tidsval: Hover och Vald har beige bakgrund utan kantlinje. */
+.time-option:hover,
+.time-option.is-selected { background: var(--ljus-secondary); border-color: var(--ljus-secondary); }
 .time-option input { position: absolute; opacity: 0; pointer-events: none; }
 .time-option:has(input:focus-visible) { outline: 3px solid var(--ljus-primary); outline-offset: 2px; }
-.time-option__dot {
-  width: 11px;
-  height: 11px;
-  border: 1.5px solid currentColor;
-  border-radius: 50%;
-}
-.time-option.is-selected .time-option__dot { background: currentColor; box-shadow: inset 0 0 0 2px var(--ljus-white); }
+.time-option__dot { line-height: normal; }
 
 /* ---------- Slutför bokning ---------- */
 
@@ -358,6 +353,8 @@
   .time-picker { gap: 8px; }
   .time-picker__legend { font-size: 20px; line-height: 28px; }
   .time-option { background: var(--ljus-card); font-weight: 600; }
+  .time-option:hover,
+  .time-option.is-selected { background: var(--ljus-secondary); }
 
   /* Slutför bokning */
   .book-card { flex-direction: column; align-items: stretch; gap: 16px; }

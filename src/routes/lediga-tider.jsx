@@ -62,7 +62,7 @@ function AvailableTimes() {
                   setShowError(false)
                 }}
               />
-              <span className="time-option__dot" aria-hidden="true" />
+              <span className="time-option__dot" aria-hidden="true">{selected === w.id ? '●' : '○'}</span>
               <span>{w.optionLabel}</span>
             </label>
           ))}
