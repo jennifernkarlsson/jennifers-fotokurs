@@ -1,4 +1,4 @@
-import { createRootRoute, HeadContent, Link, Outlet } from '@tanstack/react-router'
+import { createRootRoute, HeadContent, Link, Outlet, useRouterState } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
   component: Layout,
@@ -7,6 +7,18 @@ export const Route = createRootRoute({
 })
 
 function Layout() {
+  const pathname = useRouterState({ select: (s) => s.location.pathname })
+
+  // Arrangörens vy (/admin) har en egen sidhuvud och fullbreddslayout från Figma.
+  if (pathname === '/admin' || pathname.startsWith('/admin/')) {
+    return (
+      <>
+        <HeadContent />
+        <Outlet />
+      </>
+    )
+  }
+
   return (
     <div className="site">
       <HeadContent />

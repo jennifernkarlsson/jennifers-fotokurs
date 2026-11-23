@@ -1,0 +1,486 @@
+/* Arrangörens vy (Ljusrum admin). Värden från Figma: Admin – Desktop, tablet och mobil. */
+
+.admin {
+  /* Färger */
+  --ljus-primary: #2b2423;      /* Primary accent */
+  --ljus-extra: #5b504b;        /* extra accent */
+  --ljus-secondary: #d8d3d1;    /* Secondary accent */
+  --ljus-card: #f3f1f1;         /* Card color */
+  --ljus-bg: #fbfaf9;           /* Primary Background */
+  --ljus-white: #fafafa;        /* White */
+  --ljus-text: #000;
+
+  /* Typsnitt */
+  --font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  min-height: 100vh;
+  background: var(--ljus-bg);
+  color: var(--ljus-text);
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.admin *,
+.admin *::before,
+.admin *::after { box-sizing: border-box; }
+
+:where(.admin) :where(p, h1, h2, ul, dl, dd) { margin: 0; padding: 0; }
+:where(.admin) ul { list-style: none; }
+:where(.admin) img { display: block; }
+:where(.admin) a { color: inherit; text-decoration: none; }
+.admin :focus-visible { outline: 3px solid var(--ljus-primary); outline-offset: 3px; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* ---------- Sidlayout ---------- */
+
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 16px 0 48px;
+}
+
+.admin-top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+.admin-page--home .admin-top { gap: 0; }
+
+.admin-container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 24px;
+}
+
+/* ---------- Typografi ---------- */
+
+.admin-eyebrow {             /* Sidrubrik navigation */
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 1.6px;
+}
+
+.admin-h1 {                  /* Hero titel */
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 64px;
+  letter-spacing: 0;
+}
+
+.admin-h1,
+.admin-h2 { margin: 0; }
+
+.admin-h2 {                  /* Sektionsrubrik */
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.admin-title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 24px;
+}
+
+/* ---------- Toppmeny ---------- */
+
+.admin-header {
+  width: 100%;
+  padding: 16px 0;
+  border-bottom: 2px solid var(--ljus-primary);
+}
+
+.admin-header__bar {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 17px;
+  padding: 0 32px;
+  background: var(--ljus-bg);
+}
+.admin-header--wide .admin-header__bar { padding: 0 56px; }
+
+.admin-logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.admin-logo__mark { width: 52px; height: 42px; object-fit: cover; }
+.admin-logo__text { display: flex; flex-direction: column; gap: 8px; color: var(--ljus-primary); font-family: var(--font-display); }
+.admin-logo__name { font-size: 32px; line-height: 32px; letter-spacing: 5.12px; }
+.admin-logo__tagline { display: none; font-size: 12px; line-height: 12px; letter-spacing: 1.92px; }
+
+.admin-nav {
+  display: flex;
+  align-items: flex-end;
+  gap: 32px;
+  border: 0;
+}
+.admin .admin-nav a {         /* Topmeny */
+  padding: 0;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 1.6px;
+  color: var(--ljus-text);
+  font-weight: 400;
+  text-decoration: none;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+.admin-nav a:hover { text-decoration: underline; }
+.admin-nav a[aria-disabled='true'] { cursor: default; }
+.admin-nav a[aria-disabled='true']:hover { text-decoration: none; }
+
+.admin-menu-toggle {
+  display: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+/* ---------- Bakåtlänk och knappar ---------- */
+
+.admin-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 8px 32px;
+  border-radius: 8px;
+  font-weight: 700;           /* Knapp */
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--ljus-primary);
+}
+.admin-back:hover span { text-decoration: underline; }
+
+.admin-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+}
+.admin-btn--dark { background: var(--ljus-primary); color: var(--ljus-white); }
+.admin-btn--light { background: var(--ljus-secondary); color: var(--ljus-primary); }
+.admin-btn--dark:hover { background: #403634; }
+.admin-btn--light:hover { background: #cdc6c3; }
+
+.admin-mobile-actions { display: none; }
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 24px;
+  border-radius: 8px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--ljus-primary);
+  white-space: nowrap;
+}
+.text-link:hover span { text-decoration: underline; }
+
+.only-narrow { display: none; }
+
+/* ---------- Startsida: hero ---------- */
+
+.admin-hero {
+  width: 100%;
+  min-height: 386px;
+  background-color: var(--ljus-secondary);
+  background-image: url('/images/hero-desktop.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.admin-hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 732px;
+  max-width: 100%;
+  padding: 48px 56px;
+}
+.admin-hero__title { width: 606px; max-width: 100%; }
+.admin-hero__lead { width: 468px; max-width: 100%; font-size: 20px; line-height: 28px; }
+.admin-hero__cta { display: none; }
+
+/* ---------- Startsida: workshopkort ---------- */
+
+.workshop-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.workshop-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 16px;
+  background: var(--ljus-card);
+  border: 2px solid var(--ljus-secondary);
+  border-radius: 4px;
+  transition: border-color 0.15s ease;
+}
+.workshop-row:hover { border-color: var(--ljus-extra); }
+
+.workshop-row__image {
+  flex: 0 0 264px;
+  height: 178px;
+  background-color: var(--ljus-secondary);
+  background-size: cover;
+  background-position: center;
+}
+.workshop-row__info {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.workshop-row__chevron {
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+}
+.workshop-row__button { display: none; }
+
+.info-list { display: flex; flex-direction: column; gap: 4px; }
+.info-list li { display: flex; align-items: center; gap: 8px; }
+.info-list img { flex-shrink: 0; }
+.info-list__muted { color: var(--ljus-extra); }
+.info-list--large li { font-size: 20px; line-height: 28px; }   /* Underrubrik header */
+.info-list--large li:last-child { gap: 8px; }
+
+/* ---------- Bokningsöversikt ---------- */
+
+.summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 24px 0;
+  border-top: 2px solid var(--ljus-secondary);
+  border-bottom: 2px solid var(--ljus-secondary);
+  background: var(--ljus-bg);
+}
+.summary__info { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.summary__stats { flex: 1 1 0; min-width: 0; display: flex; justify-content: flex-end; gap: 18px; }
+
+.stat {
+  width: 200px;
+  min-width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 48px;
+  background: var(--ljus-card);
+  border: 2px solid var(--ljus-secondary);
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+}
+.stat__icon { height: 74px; width: auto; object-fit: contain; }
+.stat__value { font-size: 24px; line-height: 32px; }
+.stat__label { font-size: 16px; line-height: 24px; white-space: nowrap; }
+
+.participants { display: flex; flex-direction: column; gap: 16px; }
+
+.participants-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.participants-table th {     /* Liten rubrik */
+  padding: 12px 0;
+  background: var(--ljus-secondary);
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  vertical-align: top;
+}
+.participants-table th:first-child { border-radius: 4px 0 0 4px; }
+.participants-table th:last-child { border-radius: 0 4px 4px 0; }
+.participants-table td {
+  padding: 8px 0;
+  background: var(--ljus-white);
+  border-bottom: 2px solid var(--ljus-secondary);
+  line-height: normal;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+.participants-table th:first-child,
+.participants-table td:first-child { padding-left: 24px; width: 174px; }
+.participants-table .col-count { width: 150px; }
+.participants-table .col-action { width: 166px; text-align: right; }
+
+/* ---------- Bokningsdetaljer ---------- */
+
+.detail-card {
+  border: 4px solid var(--ljus-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.detail-card__title {
+  padding: 24px 32px;
+  background: var(--ljus-secondary);
+}
+.detail-list__row {
+  display: flex;
+  align-items: center;
+  padding: 16px 32px;
+  background: var(--ljus-white);
+  border-bottom: 1px solid var(--ljus-secondary);
+}
+.detail-list__row:last-child { border-bottom: 0; }
+.detail-list dt { flex: 0 0 300px; font-weight: 600; }
+.detail-list dd { flex: 1 1 0; min-width: 0; overflow-wrap: anywhere; }
+
+/* ---------- Surfplatta (Figma: 768 px) ---------- */
+
+@media (max-width: 1048px) {
+  .workshop-list { padding: 0 24px; }
+}
+
+@media (max-width: 900px) {
+  .workshop-row__info .admin-h2 { max-width: 288px; }
+  .stat { width: 150px; padding: 16px 12px; }
+}
+
+/* ---------- Mobil (Figma: 402 px) ---------- */
+
+@media (max-width: 680px) {
+  .admin-page { gap: 16px; padding-top: 16px; }
+  .admin-page--detail { gap: 24px; }
+  .admin-top { gap: 0; }
+
+  .admin-header { padding: 0 0 16px; }
+  .admin-header__bar,
+  .admin-header--wide .admin-header__bar { padding: 0 24px; }
+  .admin-logo { gap: 17px; flex: 1 1 auto; min-width: 0; }
+  .admin-logo__mark { width: 53px; height: 44px; border-radius: 4px; }
+  .admin-logo__text { justify-content: flex-end; height: 44px; }
+  .admin-logo__name { font-size: 24px; line-height: 24px; letter-spacing: 3.84px; }
+  .admin-logo__tagline { display: block; }
+
+  .admin-menu-toggle { display: block; }
+  .admin-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 18px);
+    right: 0;
+    left: 0;
+    z-index: 10;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--ljus-bg);
+    border-bottom: 2px solid var(--ljus-primary);
+  }
+  .admin-nav.is-open { display: flex; }
+  .admin-nav a { padding: 12px 24px; border-top: 1px solid var(--ljus-secondary); }
+
+  .admin-back { display: none; }
+  .admin-title--mobile-hidden {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+
+  /* Hero */
+  .admin-hero {
+    min-height: 501px;
+    background-color: var(--ljus-extra);
+    background-image: url('/images/hero-mobile.jpg');
+  }
+  .admin-hero__text { width: 100%; padding: 32px 24px 65px; gap: 8px; }
+  .admin-hero__eyebrow { display: none; }
+  .admin-hero__break,
+  .admin-hero__foto { display: none; }
+  .admin-hero__title,
+  .admin-hero__lead { width: 100%; max-width: 400px; color: var(--ljus-white); }
+  .admin-hero__title { padding-top: 16px; }
+  .admin-hero__lead { font-size: 16px; line-height: 24px; padding-bottom: 16px; }
+  .admin-hero__cta { display: inline-flex; align-self: flex-start; padding: 16px 32px; }
+
+  /* Workshopkort */
+  .workshop-list { gap: 16px; padding: 0 24px; }
+  .workshop-row { flex-direction: column; align-items: stretch; gap: 16px; }
+  .workshop-row__image,
+  .workshop-row__chevron { display: none; }
+  .workshop-row__info .admin-h2 { max-width: none; }
+  .workshop-row__button { display: flex; }
+  .workshop-row:hover { border-color: var(--ljus-secondary); }
+  .workshop-row:hover .workshop-row__button { background: #403634; }
+
+  /* Översikt */
+  .summary {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 352px;
+    margin: 0 auto;
+    padding: 24px 16px;
+    background: var(--ljus-card);
+    border: 2px solid var(--ljus-secondary);
+  }
+  .summary .info-list img { display: none; }
+  .summary .info-list--large li { font-size: 16px; line-height: 24px; }
+  .summary__stats { justify-content: flex-start; gap: 8px; }
+  .stat {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    gap: 0;
+    padding: 16px 8px;
+    background: var(--ljus-white);
+  }
+  .stat__icon,
+  .stat__divider { display: none; }
+
+  .participants-table .col-count,
+  .participants-table .col-email { display: none; }
+  .participants-table th:first-child,
+  .participants-table td:first-child { padding-left: 16px; width: 96px; }
+  .participants-table td { line-height: 24px; }
+  .participants-table .col-action { width: 133px; }
+  .only-wide { display: none; }
+  .only-narrow { display: inline; }
+
+  .admin-mobile-actions { display: flex; flex-direction: column; gap: 8px; width: 100%; padding: 0 24px; margin-top: 96px; }
+  .admin-mobile-actions--stack { padding: 0 32px; margin-top: 16px; }
+
+  /* Detaljer */
+  .detail-card { border-width: 2px; }
+  .detail-card__title { padding: 16px 32px; }
+  .detail-list__row { flex-direction: column; align-items: flex-start; padding: 8px 32px; }
+  .detail-list dt { flex: none; }
+  .detail-list dd { flex: none; width: 100%; }
+}

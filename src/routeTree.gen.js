@@ -9,22 +9,48 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminWorkshopWorkshopIdRouteImport } from './routes/admin.workshop.$workshopId'
+import { Route as AdminBokningBookingIdRouteImport } from './routes/admin.bokning.$bookingId'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-})
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => rootRouteImport,
 })
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+})
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+})
+const AdminWorkshopWorkshopIdRoute = AdminWorkshopWorkshopIdRouteImport.update({
+  id: '/workshop/$workshopId',
+  path: '/workshop/$workshopId',
+  getParentRoute: () => AdminRoute,
+})
+const AdminBokningBookingIdRoute = AdminBokningBookingIdRouteImport.update({
+  id: '/bokning/$bookingId',
+  path: '/bokning/$bookingId',
+  getParentRoute: () => AdminRoute,
+})
+
+const AdminRouteChildren = {
+  AdminIndexRoute: AdminIndexRoute,
+  AdminBokningBookingIdRoute: AdminBokningBookingIdRoute,
+  AdminWorkshopWorkshopIdRoute: AdminWorkshopWorkshopIdRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 const rootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
+  AdminRoute: AdminRouteWithChildren,
 }
 export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)

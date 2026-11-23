@@ -74,3 +74,27 @@ Klicka på länken från hemsidan, ladda om bokningssidan och prova webbläsaren
 I VS Code, öppna **Source Control**, skriv vad du ändrat och välj **Commit**. Om VS Code frågar om filerna ska inkluderas, välj **Yes**. Välj **Sync Changes** för att skicka ändringen till din egen GitHub-kopia.
 
 Logga in på [Vercel](https://vercel.com/new), importera din kopia och välj **Deploy** med förvalet **Vite**. Öppna den publicerade hemsidan och gå sedan direkt till `/admin` och ladda om. Lämna in hemsidans länk när båda vyerna är färdiga.
+
+## Arrangörens vy (Ljusrum admin)
+
+Adminsidorna följer Figma-sidan *11 – Design: Admin – Desktop* med surfplatte- och mobilversionerna från *11B* och *12*:
+
+| Adress | Sida |
+| --- | --- |
+| `/admin` | Kommande workshops |
+| `/admin/workshop/14-november` | Bokningsöversikt för ett tillfälle |
+| `/admin/bokning/L101` | Bokningsdetaljer |
+
+Färger, typsnitt och avstånd finns i `src/components/admin/admin.css`. Exempeldatan ligger i `src/data/workshops.js`.
+
+### Foton från Figma
+
+Exportera fotona från Figma som JPG (2x) och lägg dem i `public/images/` med de här namnen. Tills de finns visas en neutral bakgrundsfärg.
+
+| Fil | Lager i Figma |
+| --- | --- |
+| `hero-desktop.jpg` | Workshopöversikt färg → Top → **Picture** |
+| `hero-mobile.jpg` | Kommande workshops (mobil) → **Heading** |
+| `workshop-1.jpg` | Första kortet → **Bild** |
+| `workshop-2.jpg` | Andra kortet → **Bild** |
+| `workshop-3.jpg` | Tredje kortet → **Bild** |

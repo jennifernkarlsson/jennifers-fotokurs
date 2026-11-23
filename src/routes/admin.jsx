@@ -1,15 +1,16 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Outlet } from '@tanstack/react-router'
+import '../components/admin/admin.css'
 
+// Gemensam ram för arrangörens sidor: /admin, /admin/workshop/… och /admin/bokning/…
 export const Route = createFileRoute('/admin')({
-  component: Admin,
-  head: () => ({ meta: [{ title: 'Admin · Fotoworkshopen' }] }),
+  component: AdminLayout,
+  head: () => ({ meta: [{ title: 'Admin · Ljusrum' }] }),
 })
 
-function Admin() {
+function AdminLayout() {
   return (
-    <>
-      <h1>Kurstillfällen</h1>
-      <p>Här bygger du arrangörens vy för tillfällen och bokningar.</p>
-    </>
+    <div className="admin">
+      <Outlet />
+    </div>
   )
 }
