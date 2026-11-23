@@ -75,6 +75,19 @@ I VS Code, öppna **Source Control**, skriv vad du ändrat och välj **Commit**.
 
 Logga in på [Vercel](https://vercel.com/new), importera din kopia och välj **Deploy** med förvalet **Vite**. Öppna den publicerade hemsidan och gå sedan direkt till `/admin` och ladda om. Lämna in hemsidans länk när båda vyerna är färdiga.
 
+## Deltagarens sidor (Ljusrum)
+
+Startsidan och bokningsflödet följer Figma-sidorna *10 – Design: Costumer – Desktop* och *09 – Design: Costumer – Mobil*:
+
+| Adress | Sida |
+| --- | --- |
+| `/` | Workshop (startsida) |
+| `/lediga-tider` | Välj ett ledigt tillfälle |
+| `/boka?tid=14-november` | Slutför din bokning |
+| `/bekraftelse` | Din workshop är bokad |
+
+Bokningar i prototypen sparas bara i webbläsarfliken och syns inte i adminvyn.
+
 ## Arrangörens vy (Ljusrum admin)
 
 Adminsidorna följer Figma-sidan *11 – Design: Admin – Desktop* med surfplatte- och mobilversionerna från *11B* och *12*:
@@ -85,7 +98,7 @@ Adminsidorna följer Figma-sidan *11 – Design: Admin – Desktop* med surfplat
 | `/admin/workshop/14-november` | Bokningsöversikt för ett tillfälle |
 | `/admin/bokning/L101` | Bokningsdetaljer |
 
-Färger, typsnitt och avstånd finns i `src/components/admin/admin.css`. Exempeldatan ligger i `src/data/workshops.js`.
+Färger, typsnitt och avstånd finns i `src/components/ljusrum/ljusrum.css` (gemensamt) och `site.css` (deltagarens sidor). Exempeldatan ligger i `src/data/workshops.js`.
 
 ### Bilder
 

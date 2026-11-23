@@ -10,6 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AdminRouteImport } from './routes/admin'
+import { Route as LedigaTiderRouteImport } from './routes/lediga-tider'
+import { Route as BokaRouteImport } from './routes/boka'
+import { Route as BekraftelseRouteImport } from './routes/bekraftelse'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
 import { Route as AdminWorkshopWorkshopIdRouteImport } from './routes/admin.workshop.$workshopId'
@@ -18,6 +21,21 @@ import { Route as AdminBokningBookingIdRouteImport } from './routes/admin.boknin
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
+  getParentRoute: () => rootRouteImport,
+})
+const LedigaTiderRoute = LedigaTiderRouteImport.update({
+  id: '/lediga-tider',
+  path: '/lediga-tider',
+  getParentRoute: () => rootRouteImport,
+})
+const BokaRoute = BokaRouteImport.update({
+  id: '/boka',
+  path: '/boka',
+  getParentRoute: () => rootRouteImport,
+})
+const BekraftelseRoute = BekraftelseRouteImport.update({
+  id: '/bekraftelse',
+  path: '/bekraftelse',
   getParentRoute: () => rootRouteImport,
 })
 const IndexRoute = IndexRouteImport.update({
@@ -52,5 +70,8 @@ const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 const rootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
+  BekraftelseRoute: BekraftelseRoute,
+  BokaRoute: BokaRoute,
+  LedigaTiderRoute: LedigaTiderRoute,
 }
 export const routeTree = rootRouteImport._addFileChildren(rootRouteChildren)

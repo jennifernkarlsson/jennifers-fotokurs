@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { AdminHeader } from '../components/admin/AdminHeader'
-import { BackLink, MobileButton, PageTitle } from '../components/admin/AdminParts'
+import { SiteHeader } from '../components/ljusrum/SiteHeader'
+import { BackLink, MobileButton, PageTitle } from '../components/ljusrum/AdminParts'
 import { getBooking, getWorkshop } from '../data/workshops'
 
 export const Route = createFileRoute('/admin/bokning/$bookingId')({
@@ -16,7 +16,7 @@ function BookingDetails() {
   if (!booking || !workshop) {
     return (
       <div className="admin-page">
-        <AdminHeader />
+        <SiteHeader variant="admin" />
         <div className="admin-container">
           <h1 className="admin-h1">Bokningen finns inte</h1>
           <Link to="/admin">Tillbaka till workshops</Link>
@@ -39,7 +39,7 @@ function BookingDetails() {
   return (
     <div className="admin-page admin-page--detail">
       <div className="admin-top">
-        <AdminHeader />
+        <SiteHeader variant="admin" />
         <BackLink {...overview}>Tillbaka till bokningsöversikt</BackLink>
       </div>
 

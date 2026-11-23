@@ -1,5 +1,5 @@
 import { createFileRoute, Outlet } from '@tanstack/react-router'
-import '../components/admin/admin.css'
+import '../components/ljusrum/ljusrum.css'
 
 // Gemensam ram för arrangörens sidor: /admin, /admin/workshop/… och /admin/bokning/…
 export const Route = createFileRoute('/admin')({
@@ -9,7 +9,7 @@ export const Route = createFileRoute('/admin')({
 
 function AdminLayout() {
   return (
-    <div className="admin">
+    <div className="ljusrum">
       <Outlet />
     </div>
   )

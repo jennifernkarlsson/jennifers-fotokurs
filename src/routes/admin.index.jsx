@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { AdminHeader } from '../components/admin/AdminHeader'
+import { SiteHeader } from '../components/ljusrum/SiteHeader'
 import { workshops, bookedCount } from '../data/workshops'
 
 export const Route = createFileRoute('/admin/')({
@@ -11,7 +11,7 @@ function WorkshopOverview() {
   return (
     <div className="admin-page admin-page--home">
       <div className="admin-top">
-        <AdminHeader wide />
+        <SiteHeader variant="admin" wide />
         <section className="admin-hero" aria-labelledby="hero-title">
           <div className="admin-hero__text">
             <p className="admin-eyebrow admin-hero__eyebrow">WORKSHOPS</p>

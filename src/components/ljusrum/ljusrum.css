@@ -1,6 +1,6 @@
 /* Arrangörens vy (Ljusrum admin). Värden från Figma: Admin – Desktop, tablet och mobil. */
 
-.admin {
+.ljusrum {
   /* Färger */
   --ljus-primary: #2b2423;      /* Primary accent */
   --ljus-extra: #5b504b;        /* extra accent */
@@ -22,15 +22,15 @@
   line-height: 24px;
 }
 
-.admin *,
-.admin *::before,
-.admin *::after { box-sizing: border-box; }
+.ljusrum *,
+.ljusrum *::before,
+.ljusrum *::after { box-sizing: border-box; }
 
-:where(.admin) :where(p, h1, h2, ul, dl, dd) { margin: 0; padding: 0; }
-:where(.admin) ul { list-style: none; }
-:where(.admin) img { display: block; }
-:where(.admin) a { color: inherit; text-decoration: none; }
-.admin :focus-visible { outline: 3px solid var(--ljus-primary); outline-offset: 3px; }
+:where(.ljusrum) :where(p, h1, h2, ul, dl, dd) { margin: 0; padding: 0; }
+:where(.ljusrum) ul { list-style: none; }
+:where(.ljusrum) img { display: block; }
+:where(.ljusrum) a { color: inherit; text-decoration: none; }
+.ljusrum :focus-visible { outline: 3px solid var(--ljus-primary); outline-offset: 3px; }
 
 .visually-hidden {
   position: absolute !important;
@@ -136,7 +136,7 @@
   gap: 32px;
   border: 0;
 }
-.admin .admin-nav a {         /* Topmeny */
+.ljusrum .admin-nav a {         /* Topmeny */
   padding: 0;
   font-size: 20px;
   line-height: 32px;

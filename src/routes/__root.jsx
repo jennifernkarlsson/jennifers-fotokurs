@@ -1,32 +1,30 @@
-import { createRootRoute, HeadContent, Link, Outlet, useRouterState } from '@tanstack/react-router'
+import { createRootRoute, HeadContent, Link, Outlet } from '@tanstack/react-router'
+import '../components/ljusrum/ljusrum.css'
 
 export const Route = createRootRoute({
   component: Layout,
-  head: () => ({ meta: [{ title: 'Fotoworkshopen' }] }),
-  notFoundComponent: () => <h1>Sidan finns inte</h1>,
+  head: () => ({ meta: [{ title: 'Ljusrum' }] }),
+  notFoundComponent: NotFound,
 })
 
 function Layout() {
-  const pathname = useRouterState({ select: (s) => s.location.pathname })
-
-  // Arrangörens vy (/admin) har en egen sidhuvud och fullbreddslayout från Figma.
-  if (pathname === '/admin' || pathname.startsWith('/admin/')) {
-    return (
-      <>
-        <HeadContent />
-        <Outlet />
-      </>
-    )
-  }
-
   return (
-    <div className="site">
+    <>
       <HeadContent />
-      <nav aria-label="Huvudmeny">
-        <Link to="/" activeOptions={{ exact: true }}>Hem</Link>
-        <Link to="/admin">Admin</Link>
-      </nav>
-      <main><Outlet /></main>
+      <Outlet />
+    </>
+  )
+}
+
+function NotFound() {
+  return (
+    <div className="ljusrum">
+      <div className="admin-page">
+        <div className="admin-container">
+          <h1 className="admin-h1">Sidan finns inte</h1>
+          <p><Link to="/">Gå till startsidan</Link></p>
+        </div>
+      </div>
     </div>
   )
 }

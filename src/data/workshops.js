@@ -1,10 +1,18 @@
-// Exempeldata för arrangörens vy. Värdena kommer från Figma-designen.
+// Exempeldata för prototypen. Värdena kommer från Figma-designen.
+export const course = {
+  title: 'Ta kontroll över din kamera',
+  area: 'Södermalm, Stockholm',
+  price: '1200 SEK',
+}
+
 export const workshops = [
   {
     id: '14-november',
     title: 'Ta kontroll över din kamera',
     dayLabel: 'Lördag 14 November 2026',
     shortDate: '14 November 2026',
+    numericDate: '14/11/2026',
+    optionLabel: '14 November: 10:00-15:00',
     time: '10:00 - 15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
@@ -15,6 +23,8 @@ export const workshops = [
     title: 'Ta kontroll över din kamera',
     dayLabel: 'Lördag 21 November 2026',
     shortDate: '21 November 2026',
+    numericDate: '21/11/2026',
+    optionLabel: '21 November: 10:00-15:00',
     time: '10:00 - 15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
@@ -25,6 +35,8 @@ export const workshops = [
     title: 'Ta kontroll över din kamera',
     dayLabel: 'Lördag 28 November 2026',
     shortDate: '28 November 2026',
+    numericDate: '28/11/2026',
+    optionLabel: '28 November: 10:00-15:00',
     time: '10:00 - 15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
