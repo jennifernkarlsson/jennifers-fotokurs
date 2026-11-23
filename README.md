@@ -87,14 +87,6 @@ Adminsidorna följer Figma-sidan *11 – Design: Admin – Desktop* med surfplat
 
 Färger, typsnitt och avstånd finns i `src/components/admin/admin.css`. Exempeldatan ligger i `src/data/workshops.js`.
 
-### Foton från Figma
+### Bilder
 
-Exportera fotona från Figma som JPG (2x) och lägg dem i `public/images/` med de här namnen. Tills de finns visas en neutral bakgrundsfärg.
-
-| Fil | Lager i Figma |
-| --- | --- |
-| `hero-desktop.jpg` | Workshopöversikt färg → Top → **Picture** |
-| `hero-mobile.jpg` | Kommande workshops (mobil) → **Heading** |
-| `workshop-1.jpg` | Första kortet → **Bild** |
-| `workshop-2.jpg` | Andra kortet → **Bild** |
-| `workshop-3.jpg` | Tredje kortet → **Bild** |
+Fotona ligger i `public/images/`. `startsida-mobil.jpg`, `lediga-tider-hero.jpg` och `bokning-hero.jpg` hör till deltagarens sidor, som inte är byggda än.
