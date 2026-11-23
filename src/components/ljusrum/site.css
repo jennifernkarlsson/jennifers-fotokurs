@@ -84,7 +84,7 @@
 
 /* ---------- Startsida ---------- */
 
-.home-top { display: flex; flex-direction: column; gap: 32px; width: 100%; }
+.home-top { display: flex; flex-direction: column; width: 100%; }
 .admin-header--overlay { border-bottom-color: #000; }
 
 .home-hero {
