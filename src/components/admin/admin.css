@@ -148,8 +148,6 @@
   text-decoration-thickness: 2px;
 }
 .admin-nav a:hover { text-decoration: underline; }
-.admin-nav a[aria-disabled='true'] { cursor: default; }
-.admin-nav a[aria-disabled='true']:hover { text-decoration: none; }
 
 .admin-menu-toggle {
   display: none;
