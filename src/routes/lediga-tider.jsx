@@ -57,8 +57,17 @@ function AvailableTimes() {
                 name="tid"
                 value={w.id}
                 checked={selected === w.id}
-                onChange={() => {
-                  setSelected(w.id)
+                onChange={() => {}}
+                onKeyDown={(e) => {
+                  // Mellanslag på vald tid avmarkerar den även med tangentbordet.
+                  if (e.key === ' ' && selected === w.id) {
+                    e.preventDefault()
+                    setSelected('')
+                  }
+                }}
+                onClick={() => {
+                  // Klick på en redan vald tid avmarkerar den, som i Figma-prototypen.
+                  setSelected((current) => (current === w.id ? '' : w.id))
                   setShowError(false)
                 }}
               />
