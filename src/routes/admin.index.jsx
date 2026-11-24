@@ -11,7 +11,7 @@ function WorkshopOverview() {
   return (
     <div className="admin-page admin-page--home">
       <div className="admin-top">
-        <SiteHeader variant="admin" wide />
+        <SiteHeader variant="admin" />
         <section className="admin-hero" aria-labelledby="hero-title">
           <div className="admin-hero__text">
             <p className="admin-eyebrow admin-hero__eyebrow">WORKSHOPS</p>
