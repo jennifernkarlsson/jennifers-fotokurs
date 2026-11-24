@@ -454,9 +454,9 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
     min-height: 56px;
     padding: 14px 0;
     border-bottom: 2px solid var(--ljus-secondary);
-    font-size: 20px;            /* Medel rubrik */
+    font-size: 20px;
     line-height: 28px;
-    font-weight: 600;
+    font-weight: 500;           /* Medium */
     letter-spacing: 0;
     color: var(--ljus-primary);
     text-decoration: none;
