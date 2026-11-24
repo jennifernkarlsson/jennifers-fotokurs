@@ -89,7 +89,6 @@ function ConfirmBooking() {
                 <div key={f.name} className="field">
                   <label htmlFor={'field-' + f.name}>
                     {f.label}
-                    <span className="only-wide">:</span>
                   </label>
                   <input
                     id={'field-' + f.name}
