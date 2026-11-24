@@ -1,4 +1,5 @@
-import { createRootRoute, HeadContent, Link, Outlet } from '@tanstack/react-router'
+import { useLayoutEffect } from 'react'
+import { createRootRoute, HeadContent, Link, Outlet, useLocation } from '@tanstack/react-router'
 import '../components/ljusrum/ljusrum.css'
 
 export const Route = createRootRoute({
@@ -7,7 +8,25 @@ export const Route = createRootRoute({
   notFoundComponent: NotFound,
 })
 
+// Ny sida börjar alltid högst upp (logga och meny under statusfältet),
+// utom när länken pekar på en plats på sidan (t.ex. #las-mer).
+function useScrollToTopOnNavigate() {
+  const location = useLocation()
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) window.history.scrollRestoration = 'manual'
+  }, [])
+  useLayoutEffect(() => {
+    if (location.hash) return
+    const top = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    top()
+    // Safari på iPhone kan flytta sidan efter att den ritats; gör om det en gång till.
+    const id = requestAnimationFrame(top)
+    return () => cancelAnimationFrame(id)
+  }, [location.pathname, location.searchStr, location.hash])
+}
+
 function Layout() {
+  useScrollToTopOnNavigate()
   return (
     <>
       <HeadContent />
