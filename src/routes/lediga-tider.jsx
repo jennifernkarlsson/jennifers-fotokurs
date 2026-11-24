@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { SiteHeader } from '../components/ljusrum/SiteHeader'
-import { SiteBackLink, SiteButton, SiteHero, SitePage } from '../components/ljusrum/SiteParts'
+import { MobileHero, SiteBackLink, SiteButton, SiteHero, SitePage } from '../components/ljusrum/SiteParts'
 import { course, workshops } from '../data/workshops'
 
 export const Route = createFileRoute('/lediga-tider')({
@@ -37,18 +37,16 @@ function AvailableTimes() {
         <p>{course.area} / {course.price}</p>
       </SiteHero>
 
-      {/* Mobil: rubrik och bild ovanför tidsvalet */}
-      <div className="times-intro only-narrow-block">
-        <h1 className="times-intro__title">{course.title}</h1>
-        <p className="times-intro__meta">{course.area}  / {course.price}</p>
-        <div className="times-intro__image" style={{ backgroundImage: 'url(/images/kurs-workshop.jpg)' }} aria-hidden="true" />
-      </div>
+      <MobileHero image="/images/lediga-tider-mobil.jpg" eyebrow="TIDSBOKNING" title="Välj en ledig tid">
+        <p><strong>{course.title}</strong></p>
+        <p>{course.area} / {course.price}</p>
+      </MobileHero>
 
       <form className="site-card times-card" onSubmit={onSubmit} noValidate>
         <fieldset className="time-picker" aria-describedby={showError ? 'time-error' : undefined}>
           <legend className="time-picker__legend">
             <span className="only-wide">Lediga workshoptider</span>
-            <span className="only-narrow">Välj en ledig tid:</span>
+            <span className="only-narrow mobile-sr-only">Välj en ledig tid</span>
           </legend>
           <div className="time-options">
           {workshops.map((w) => (

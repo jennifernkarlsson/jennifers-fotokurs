@@ -36,6 +36,17 @@ export function SiteHero({ image, eyebrow, title, children, className = '' }) {
   )
 }
 
+// Bild med rubrik i mobilversionen (under 768 px). Ligger inom sidans marginaler.
+export function MobileHero({ image, eyebrow, title, children }) {
+  return (
+    <section className="mobile-hero only-narrow-block" style={{ backgroundImage: `url(${image})` }}>
+      <p className="mobile-hero__eyebrow">{eyebrow}</p>
+      <h1 className="mobile-hero__title">{title}</h1>
+      {children && <div className="mobile-hero__lead">{children}</div>}
+    </section>
+  )
+}
+
 // Knapp eller länk i Ljusrums stil. variant: "dark" eller "light".
 export function SiteButton({ variant = 'dark', to, href, className = '', children, ...rest }) {
   const cls = `admin-btn admin-btn--${variant} site-btn ${className}`

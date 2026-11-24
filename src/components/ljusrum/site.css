@@ -268,9 +268,44 @@
   .course__map { min-height: 0; }
 }
 
-/* ---------- Mobil (Figma: 402 px) ---------- */
+/* ---------- Mobil och små surfplattor under 768 px (Figma: UP09, 402 px) ---------- */
 
-@media (max-width: 680px) {
+@media (max-width: 767.98px) {
+  /* Toppmenyn i mobilversion. Samma regler som i ljusrum.css (där gäller de under 680 px för admin),
+     här avgränsade till deltagarens sidor så att de gäller ända upp till 768 px. */
+  .site-page .admin-top { gap: 0; }
+  .site-page .admin-header { padding: 0 0 16px; }
+  .site-page .admin-header__bar,
+  .site-page .admin-header--wide .admin-header__bar { padding: 0 24px; }
+  /* Linjen under menyn går mellan sidmarginalerna, som i Figma (inte på startsidans bild). */
+  .site-page .admin-header:not(.admin-header--overlay) { width: calc(100% - 48px); margin: 0 24px; }
+  .site-page .admin-header:not(.admin-header--overlay) .admin-header__bar { padding: 0; }
+  .site-page .admin-logo { gap: 17px; flex: 1 1 auto; min-width: 0; }
+  .site-page .admin-logo__mark { width: 53px; height: 44px; border-radius: 4px; }
+  .site-page .admin-logo__text { justify-content: flex-end; height: 44px; }
+  .site-page .admin-logo__name { font-size: 24px; line-height: 24px; letter-spacing: 3.84px; }
+  .site-page .admin-logo__tagline { display: block; }
+  .site-page .admin-menu-toggle { display: block; }
+  .site-page .admin-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 18px);
+    right: 0;
+    left: 0;
+    z-index: 10;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--ljus-bg);
+    border-bottom: 2px solid var(--ljus-primary);
+  }
+  .site-page .admin-nav.is-open { display: flex; }
+  .site-page .admin-nav a { padding: 12px 24px; border-top: 1px solid var(--ljus-secondary); }
+  .site-page .admin-header:not(.admin-header--overlay) .admin-nav { left: -24px; right: -24px; }
+  .site-page .admin-back { display: none; }
+  .site-page .only-wide { display: none; }
+  .site-page .only-narrow { display: inline; }
+
   .site-page { gap: 16px; }
   .site-card--narrow { margin-top: 0; }
   .only-wide-block { display: none; }
@@ -336,21 +371,54 @@
   .course__details { padding: 0; gap: 24px; }
   .course__details > .detail-block:nth-child(-n+2) { margin-bottom: 0; }
 
-  /* Lediga tider */
-  .times-intro { width: 100%; padding: 0 24px; }
-  .times-intro__title { margin: 0; font-size: 24px; line-height: 32px; font-weight: 600; }
-  .times-intro__meta { font-weight: 600; white-space: pre-wrap; }
-  .times-intro__image {
-    width: 100%;
-    aspect-ratio: 354 / 193;
-    margin-top: 16px;
+  /* Bild med rubrik (Lediga tider, Slutför bokning) */
+  .mobile-hero {
+    width: calc(100% - 48px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 24px 24px;
+    background-color: var(--ljus-secondary);
     background-size: cover;
     background-position: center;
   }
-  .times-card { gap: 88px; margin-top: 0; padding-top: 0; padding-bottom: 0; }
+  .mobile-hero.only-narrow-block { display: flex; }
+  .times .mobile-hero { min-height: 168px; }
+  .book .mobile-hero { min-height: 200px; }
+  .mobile-hero__eyebrow { font-size: 16px; line-height: 24px; font-weight: 500; letter-spacing: 1.28px; color: #000; }
+  .mobile-hero__title {
+    margin: -8px 0 0;           /* ögonbrynet och rubriken sitter ihop */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    color: #000;
+  }
+  .times .mobile-hero__title { margin-top: -8px; }
+  .book .mobile-hero__title { margin-top: 0; }
+  .mobile-hero__lead { font-size: 16px; line-height: 24px; color: #000; }
+  .mobile-hero__lead strong { font-weight: 600; }
+
+  /* Lediga tider, Slutför bokning och Bekräftelse: knapparna längst ner på skärmen */
+  .site-page.times,
+  .site-page.book,
+  .site-page.done { min-height: 100vh; min-height: 100svh; gap: 24px; }
+  .site-page.times,
+  .site-page.book { gap: 0; }
+  .mobile-hero { margin-bottom: 24px; }
+  .site-page.times .times-card,
+  .site-page.book .book-card,
+  .site-page.done .done-card { flex: 1 0 auto; }
+  .mobile-sr-only {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+
+  .times-card { gap: 80px; margin-top: 0; padding-top: 0; padding-bottom: 0; }
+  .times-card .site-buttons { margin-top: auto; }
   /* Mobil: Tidsval som rader med text på en rad. */
   .time-options { flex-direction: column; gap: 8px; }
-  .time-picker__legend { margin-bottom: 8px; font-size: 20px; line-height: 28px; }
+  .time-picker__legend { margin: 0; }
   .time-option {
     flex: none;
     flex-direction: row;
@@ -370,16 +438,17 @@
 
   /* Slutför bokning */
   .book-card { flex-direction: column; align-items: stretch; gap: 16px; margin-top: 0; padding: 0 24px; }
-  .book-summary { width: auto; min-height: 0; gap: 0; padding: 25px 33px; }
-  .book-summary__body { gap: 0; }
-  .book-form { gap: 16px; }
+  .book-summary { display: none; }
+  .book-form { flex: 1 0 auto; gap: 16px; }
   .book-buttons { flex-direction: column; }
   .book-fields { gap: 16px; }
   .field input { background: var(--ljus-card); }
-  .book-buttons { padding-top: 72px; }
+  .book-buttons { margin-top: auto; padding-top: 80px; }
 
   /* Bekräftelse */
   .done-card { padding: 0 24px; gap: 16px; }
   .done-box { margin-bottom: 8px; padding: 24px 32px; }
-  .done-card__button { margin: 120px 0 0; padding-left: 8px; padding-right: 8px; }
+  .done-card__button { width: calc(100% - 48px); align-self: center; margin: auto 24px 10px; padding-left: 8px; padding-right: 8px; }
+  .done-card { padding-top: 0; }
+  .done-card .detail-block { margin-bottom: 40px; }
 }

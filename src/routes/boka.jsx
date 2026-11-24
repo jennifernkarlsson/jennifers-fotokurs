@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { SiteHeader } from '../components/ljusrum/SiteHeader'
-import { SiteBackLink, SiteButton, SiteHero, SitePage } from '../components/ljusrum/SiteParts'
+import { MobileHero, SiteBackLink, SiteButton, SiteHero, SitePage } from '../components/ljusrum/SiteParts'
 import { course, getWorkshop } from '../data/workshops'
 import { saveBooking } from '../data/bookingStore'
 
@@ -55,6 +55,16 @@ function ConfirmBooking() {
         <p>Fyll i dina kontaktuppgifter och bekräfta din plats på workshopen.</p>
       </SiteHero>
 
+      <MobileHero image="/images/bokning-mobil.jpg" eyebrow="TIDSBOKNING" title="Slutför din bokning">
+        {workshop && (
+          <>
+            <p><strong>{course.title}</strong></p>
+            <p><strong>{workshop.numericDate} • {workshop.time}</strong></p>
+            <p>{course.price} • Betalas i fotostudion</p>
+          </>
+        )}
+      </MobileHero>
+
       {!workshop ? (
         <div className="site-card site-card--narrow">
           <h2 className="admin-h2">Välj en tid först</h2>
@@ -83,7 +93,6 @@ function ConfirmBooking() {
 
           <div className="book-form">
             <h2 className="admin-h2 book-form__title only-wide-block">Fyll i dina kontaktuppgifter</h2>
-            <h1 className="mobile-sr-title">Slutför din bokning</h1>
             <div className="book-fields">
               {fields.map((f) => (
                 <div key={f.name} className="field">
