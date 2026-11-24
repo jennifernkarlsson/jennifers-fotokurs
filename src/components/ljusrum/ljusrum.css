@@ -22,6 +22,9 @@
   line-height: 24px;
 }
 
+/* Sidans bakgrund även på html, så att webbläsarens fält (t.ex. Safari på iPhone) får samma färg. */
+html:has(.ljusrum) { background-color: #fbfaf9; }
+
 .ljusrum *,
 .ljusrum *::before,
 .ljusrum *::after { box-sizing: border-box; }

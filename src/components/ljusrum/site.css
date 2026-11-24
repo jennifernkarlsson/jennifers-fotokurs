@@ -329,14 +329,16 @@
 
   /* Startsida */
   /* Övriga sidor: luft under statusfältet i sidans bakgrundsfärg. */
-  .site-page { padding-top: env(safe-area-inset-top, 0px); }
+  .site-page { padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
+  /* Safari färgar fältet med klocka och kamera efter sidans bakgrund: på startsidan bildens mörka ton. */
+  html:has(.site-page.home) { background-color: #51443a; }
   .site-page.home { padding-top: 0; gap: 16px; }
   .home-top {
     gap: 0;
     min-height: 100vh;
     min-height: 100svh;
-    /* Bilden går upp under statusfältet/kamerafältet; innehållet börjar nedanför (ca 62 px på nyare iPhone). */
-    padding-top: env(safe-area-inset-top, 0px);
+    /* Bilden går upp under statusfältet/kamerafältet; menyn börjar 16 px nedanför det. */
+    padding-top: calc(env(safe-area-inset-top, 0px) + 16px);
     background: var(--ljus-extra) url('/images/startsida-mobil.jpg') center / cover no-repeat;
   }
   .admin-header--overlay { border-bottom-color: var(--ljus-white); }

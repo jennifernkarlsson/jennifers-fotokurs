@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { SiteHeader } from '../components/ljusrum/SiteHeader'
 import { SiteButton, SitePage } from '../components/ljusrum/SiteParts'
@@ -8,7 +9,20 @@ export const Route = createFileRoute('/')({
   head: () => ({ meta: [{ title: 'Ljusrum · Fotoworkshops' }] }),
 })
 
+// Färgen överst i startsidans mobilbild. Safari färgar statusfältet (klocka/kamera) efter den,
+// så att bilden ser ut att fortsätta upp bakom kameran.
+const TOP_COLOR = '#51443a'
+
 function Home() {
+  useEffect(() => {
+    const meta = document.createElement('meta')
+    meta.name = 'theme-color'
+    meta.content = TOP_COLOR
+    meta.media = '(max-width: 767.98px)'
+    document.head.appendChild(meta)
+    return () => meta.remove()
+  }, [])
+
   return (
     <SitePage className="home">
       <div className="home-top">
