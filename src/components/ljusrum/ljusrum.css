@@ -449,7 +449,7 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
   .workshop-row { flex-direction: column; align-items: stretch; gap: 16px; }
   .workshop-row__image,
   .workshop-row__chevron { display: none; }
-  .workshop-row__info .admin-h2 { max-width: none; }
+  .workshop-row__info .admin-h2 { max-width: none; font-size: 20px; line-height: 28px; }   /* Medel rubrik */
   .workshop-row__button { display: flex; }
   .workshop-row:hover { border-color: var(--ljus-secondary); }
   .workshop-row:hover .workshop-row__button { background: #403634; }
