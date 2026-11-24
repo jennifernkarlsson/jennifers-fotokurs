@@ -152,6 +152,11 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
   text-decoration-thickness: 2px;
 }
 .admin-nav a:hover { text-decoration: underline; }
+.admin-nav__list { display: contents; }
+.admin-nav__eyebrow,
+.admin-nav__arrow,
+.admin-nav__footer,
+.admin-nav__backdrop { display: none; }
 
 .admin-menu-toggle {
   display: none;
@@ -402,21 +407,106 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
   .admin-logo__tagline { display: block; }
 
   .admin-menu-toggle { display: block; }
+  /* Mobilmeny: panel som fälls ner under toppmenyn, i samma stil som sidornas kort och knappar */
+  .admin-header { position: relative; }
+  .admin-header.is-menu-open { z-index: 30; }
+  .admin-header--overlay.is-menu-open .admin-header__bar { background: var(--ljus-bg); }
+  .admin-header--overlay.is-menu-open { border-bottom-color: var(--ljus-primary); background: var(--ljus-bg); }
+  .admin-header--overlay.is-menu-open .admin-logo__text { color: var(--ljus-primary); }
   .admin-nav {
-    display: none;
+    position: absolute;
+    top: calc(100% + 18px);     /* under linjen (16 px luft + 2 px linje) */
+    right: 0;
+    left: 0;
+    z-index: 31;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 24px 24px 32px;
+    background: var(--ljus-bg);
+    border-bottom: 2px solid var(--ljus-primary);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0s linear 0.18s;
+  }
+  .admin-nav.is-open {
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .admin-nav__eyebrow {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 500;
+    letter-spacing: 1.28px;     /* Mobil: Sidtitel navigation */
+    color: var(--ljus-extra);
+  }
+  .admin-nav__list { display: flex; flex-direction: column; }
+  .ljusrum .admin-nav .admin-nav__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 64px;
+    padding: 16px 0;
+    border-bottom: 2px solid var(--ljus-secondary);
+    font-size: 24px;            /* Sektionsrubrik */
+    line-height: 32px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: var(--ljus-primary);
+    text-decoration: none;
+  }
+  .ljusrum .admin-nav .admin-nav__item.is-inactive { color: var(--ljus-extra); font-weight: 400; cursor: default; }
+  .admin-nav__item:not(.is-inactive):active { background: var(--ljus-card); }
+  .admin-nav__arrow { display: block; width: 14px; height: 12px; }
+  .admin-nav__footer {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 24px;
+    padding: 16px;
+    background: var(--ljus-card);
+    border: 2px solid var(--ljus-secondary);
+    border-radius: 4px;
+  }
+  .admin-nav__place { display: flex; flex-direction: column; font-size: 16px; line-height: 24px; color: var(--ljus-text); }
+  .admin-nav__place strong { font-weight: 600; }
+  .ljusrum .admin-nav .admin-nav__cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 56px;
+    padding: 16px 8px;
+    border-radius: 4px;
+    background: var(--ljus-primary);
+    color: var(--ljus-white);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-decoration: none;
+  }
+  .admin-nav__backdrop {
+    display: block;
     position: absolute;
     top: calc(100% + 18px);
     right: 0;
     left: 0;
-    z-index: 10;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    background: var(--ljus-bg);
-    border-bottom: 2px solid var(--ljus-primary);
+    height: 100vh;
+    z-index: 30;
+    background: rgba(43, 36, 35, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
   }
-  .admin-nav.is-open { display: flex; }
-  .admin-nav a { padding: 12px 24px; border-top: 1px solid var(--ljus-secondary); }
+  .admin-nav__backdrop.is-open { opacity: 1; pointer-events: auto; }
+  html.menu-open,
+  html.menu-open body { overflow: hidden; }
 
   .admin-back { display: none; }
   /* Sidrubrik (Bokningsöversikt, Bokningsdetaljer): 24 px under menyn */

@@ -286,22 +286,9 @@
   .site-page .admin-logo__name { font-size: 24px; line-height: 24px; letter-spacing: 3.84px; }
   .site-page .admin-logo__tagline { display: block; }
   .site-page .admin-menu-toggle { display: block; }
-  .site-page .admin-nav {
-    display: none;
-    position: absolute;
-    top: calc(100% + 18px);
-    right: 0;
-    left: 0;
-    z-index: 10;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    background: var(--ljus-bg);
-    border-bottom: 2px solid var(--ljus-primary);
-  }
-  .site-page .admin-nav.is-open { display: flex; }
-  .site-page .admin-nav a { padding: 12px 24px; border-top: 1px solid var(--ljus-secondary); }
-  .site-page .admin-header:not(.admin-header--overlay) .admin-nav { left: -24px; right: -24px; }
+  /* Mobilmenyn (panelen) stylas i ljusrum.css */
+  .site-page .admin-header:not(.admin-header--overlay) .admin-nav,
+  .site-page .admin-header:not(.admin-header--overlay) .admin-nav__backdrop { left: -24px; right: -24px; }
   .site-page .admin-back { display: none; }
   .site-page .only-wide { display: none; }
   .site-page .only-narrow { display: inline; }

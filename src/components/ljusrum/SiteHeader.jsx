@@ -1,25 +1,49 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from '@tanstack/react-router'
 
 // Ett menyval som inte leder någonstans än (sidan finns inte i prototypen).
 function Inactive({ children }) {
   return (
-    <a href="#" aria-disabled="true" onClick={(e) => e.preventDefault()}>
-      {children}
+    <a href="#" className="admin-nav__item is-inactive" aria-disabled="true" onClick={(e) => e.preventDefault()}>
+      <span>{children}</span>
     </a>
   )
 }
 
+// Pil som bara visas i mobilmenyn.
+function Arrow() {
+  return <img className="admin-nav__arrow" src="/icons/arrow-right.svg" alt="" width="14" height="12" />
+}
+
 // Toppmeny för Ljusrum. variant="admin" används på arrangörens sidor, "site" på deltagarens.
 // overlay=true ger vit text över en bild (mobilens startsida).
+// På mobil (under 768 px) blir menyn en panel som fälls ner under toppmenyn.
 export function SiteHeader({ variant = 'site', wide = false, overlay = false }) {
   const [open, setOpen] = useState(false)
   const isAdmin = variant === 'admin'
+  const close = () => setOpen(false)
+
+  // Stäng med Esc och lås sidan bakom medan menyn är öppen.
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(false)
+    document.addEventListener('keydown', onKey)
+    document.documentElement.classList.add('menu-open')
+    return () => {
+      document.removeEventListener('keydown', onKey)
+      document.documentElement.classList.remove('menu-open')
+    }
+  }, [open])
+
+  const icon = open ? 'close' : 'hamburger'
 
   return (
     <header
       className={
-        'admin-header' + (wide ? ' admin-header--wide' : '') + (overlay ? ' admin-header--overlay' : '')
+        'admin-header' +
+        (wide ? ' admin-header--wide' : '') +
+        (overlay ? ' admin-header--overlay' : '') +
+        (open ? ' is-menu-open' : '')
       }
     >
       <div className="admin-header__bar">
@@ -43,28 +67,51 @@ export function SiteHeader({ variant = 'site', wide = false, overlay = false }) 
           aria-label={open ? 'Stäng meny' : 'Öppna meny'}
           onClick={() => setOpen((v) => !v)}
         >
-          <img src={overlay ? '/icons/hamburger-white.svg' : '/icons/hamburger.svg'} alt="" width="45" height="44" />
+          <img src={`/icons/${icon}${overlay && !open ? '-white' : ''}.svg`} alt="" width="45" height="44" />
         </button>
 
-        <nav
-          id="site-nav"
-          className={'admin-nav' + (open ? ' is-open' : '')}
-          aria-label="Huvudmeny"
-          onClick={() => setOpen(false)}
-        >
-          {isAdmin ? (
-            <>
-              <Inactive>Hem</Inactive>
-              <Link to="/admin">Workshops</Link>
-            </>
-          ) : (
-            <>
-              <Link to="/">Hem</Link>
-              <Link to="/" hash="workshop">Workshops</Link>
-            </>
-          )}
-          <Inactive>Inställningar</Inactive>
+        <nav id="site-nav" className={'admin-nav' + (open ? ' is-open' : '')} aria-label="Huvudmeny">
+          <p className="admin-nav__eyebrow">{isAdmin ? 'ADMIN' : 'MENY'}</p>
+          <div className="admin-nav__list" onClick={close}>
+            {isAdmin ? (
+              <>
+                <Inactive>Hem</Inactive>
+                <Link to="/admin" className="admin-nav__item">
+                  <span>Workshops</span>
+                  <Arrow />
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/" className="admin-nav__item">
+                  <span>Hem</span>
+                  <Arrow />
+                </Link>
+                <Link to="/" hash="workshop" className="admin-nav__item">
+                  <span>Workshops</span>
+                  <Arrow />
+                </Link>
+              </>
+            )}
+            <Inactive>Inställningar</Inactive>
+          </div>
+
+          {/* Bara i mobilmenyn: kort info och genväg, i samma stil som korten på sidorna. */}
+          <div className="admin-nav__footer">
+            <p className="admin-nav__place">
+              <strong>Ljusrums fotostudio</strong>
+              <span>Södermalm, Stockholm</span>
+            </p>
+            {!isAdmin && (
+              <Link to="/lediga-tider" className="admin-nav__cta" onClick={close}>
+                Se lediga tider
+              </Link>
+            )}
+          </div>
         </nav>
+
+        {/* Mörk slöja över sidan under menyn; tryck för att stänga. */}
+        <div className={'admin-nav__backdrop' + (open ? ' is-open' : '')} onClick={close} aria-hidden="true" />
       </div>
     </header>
   )
