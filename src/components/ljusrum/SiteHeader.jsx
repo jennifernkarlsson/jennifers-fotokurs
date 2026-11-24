@@ -6,6 +6,7 @@ function Inactive({ children }) {
   return (
     <a href="#" className="admin-nav__item is-inactive" aria-disabled="true" onClick={(e) => e.preventDefault()}>
       <span>{children}</span>
+      <Arrow />
     </a>
   )
 }
@@ -96,18 +97,6 @@ export function SiteHeader({ variant = 'site', wide = false, overlay = false }) 
             <Inactive>Inställningar</Inactive>
           </div>
 
-          {/* Bara i mobilmenyn: kort info och genväg, i samma stil som korten på sidorna. */}
-          <div className="admin-nav__footer">
-            <p className="admin-nav__place">
-              <strong>Ljusrums fotostudio</strong>
-              <span>Södermalm, Stockholm</span>
-            </p>
-            {!isAdmin && (
-              <Link to="/lediga-tider" className="admin-nav__cta" onClick={close}>
-                Se lediga tider
-              </Link>
-            )}
-          </div>
         </nav>
 
         {/* Mörk slöja över sidan under menyn; tryck för att stänga. */}

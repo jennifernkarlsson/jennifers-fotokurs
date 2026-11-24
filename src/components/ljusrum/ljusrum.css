@@ -461,7 +461,7 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
     color: var(--ljus-primary);
     text-decoration: none;
   }
-  .ljusrum .admin-nav .admin-nav__item.is-inactive { color: var(--ljus-extra); font-weight: 400; cursor: default; }
+  .ljusrum .admin-nav .admin-nav__item.is-inactive { cursor: default; }   /* ser ut som övriga val */
   .admin-nav__item:not(.is-inactive):active { background: var(--ljus-card); }
   .admin-nav__arrow { display: block; width: 14px; height: 12px; }
   .admin-nav__footer {
