@@ -11,7 +11,7 @@ export const Route = createFileRoute('/')({
 
 // Färgen överst i startsidans mobilbild. Safari färgar statusfältet (klocka/kamera) efter den,
 // så att bilden ser ut att fortsätta upp bakom kameran.
-const TOP_COLOR = '#51443a'
+const TOP_COLOR = '#4f4338'
 
 function Home() {
   useEffect(() => {
