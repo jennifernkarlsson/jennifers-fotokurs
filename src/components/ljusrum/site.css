@@ -328,12 +328,15 @@
   }
 
   /* Startsida */
+  /* Övriga sidor: luft under statusfältet i sidans bakgrundsfärg. */
+  .site-page { padding-top: env(safe-area-inset-top, 0px); }
   .site-page.home { padding-top: 0; gap: 16px; }
   .home-top {
     gap: 0;
     min-height: 100vh;
     min-height: 100svh;
-    padding-top: 0;
+    /* Bilden går upp under statusfältet/kamerafältet; innehållet börjar nedanför (ca 62 px på nyare iPhone). */
+    padding-top: env(safe-area-inset-top, 0px);
     background: var(--ljus-extra) url('/images/startsida-mobil.jpg') center / cover no-repeat;
   }
   .admin-header--overlay { border-bottom-color: var(--ljus-white); }
