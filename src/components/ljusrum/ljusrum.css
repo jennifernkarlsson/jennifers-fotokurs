@@ -386,8 +386,8 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
 
 @media (max-width: 767.98px) {   /* Mobil och små surfplattor (Figma UP12) */
   /* Luft under iPhonens statusfält och 16 px ovanför menyn */
-  /* 62 px luft upptill för iPhonens statusfält och kamera (som i Figma) */
-  .admin-page { gap: 16px; padding-top: 62px; }
+  /* Menyn precis under iPhonens statusfält/kamera (ca 59–62 px), annars 16 px */
+  .admin-page { gap: 16px; padding-top: max(16px, env(safe-area-inset-top, 0px)); }
   .admin-page:not(.admin-page--home),
   .admin-page--detail { gap: 16px; }
   .admin-top { gap: 0; }

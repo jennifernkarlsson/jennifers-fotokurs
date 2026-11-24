@@ -329,7 +329,7 @@
 
   /* Startsida */
   /* Övriga sidor: luft under statusfältet i sidans bakgrundsfärg. */
-  .site-page { padding-top: 62px; }   /* 62 px för iPhonens statusfält och kamera (Figma) */
+  .site-page { padding-top: max(16px, env(safe-area-inset-top, 0px)); }   /* precis under iPhonens statusfält/kamera (ca 59–62 px), annars 16 px */
   /* Safari färgar fältet med klocka och kamera efter sidans bakgrund: på startsidan bildens mörka ton. */
   html:has(.site-page.home),
   html:has(.site-page.home) body { background-color: #4f4338; }
@@ -339,7 +339,7 @@
     min-height: 100vh;
     min-height: 100svh;
     /* Bilden går upp under statusfältet/kamerafältet; menyn börjar 16 px nedanför det. */
-    padding-top: 62px;          /* 62 px för iPhonens statusfält och kamera, som övriga sidor */
+    padding-top: max(16px, env(safe-area-inset-top, 0px));
     background: var(--ljus-extra) url('/images/startsida-mobil.jpg') center / cover no-repeat;
   }
   .admin-header--overlay { border-bottom-color: var(--ljus-white); }
