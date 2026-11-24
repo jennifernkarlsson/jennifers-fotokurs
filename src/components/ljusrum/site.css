@@ -370,7 +370,7 @@
   .course__more {
     flex-direction: column;
     gap: 16px;
-    margin-top: 56px;
+    margin-top: 24px;           /* Figma: 24 px från knapparna till kartan */
     padding: 0;
   }
   .course__map { order: -1; flex: none; width: 100%; aspect-ratio: 354 / 222; }
