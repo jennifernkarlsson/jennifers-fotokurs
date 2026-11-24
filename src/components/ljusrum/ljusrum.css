@@ -342,7 +342,7 @@
 }
 .participants-table th:first-child,
 .participants-table td:first-child { padding-left: 24px; width: 174px; }
-.participants-table .col-count { width: 150px; }
+.participants-table .col-count { width: 120px; }
 .participants-table .col-action { width: 166px; text-align: right; }
 
 /* ---------- Bokningsdetaljer ---------- */
