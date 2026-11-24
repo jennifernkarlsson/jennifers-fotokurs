@@ -43,7 +43,7 @@ function BookingDetails() {
         <BackLink {...overview}>Tillbaka till bokningsöversikt</BackLink>
       </div>
 
-      <PageTitle eyebrow="BOKNINGAR" title="Bokningsdetaljer" hideOnMobile />
+      <PageTitle eyebrow="WORKSHOPS" title="Bokningsdetaljer" hideOnMobile />
 
       <section className="admin-container" aria-labelledby="booking-title">
         <div className="detail-card">

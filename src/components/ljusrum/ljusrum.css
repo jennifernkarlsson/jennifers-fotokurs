@@ -54,10 +54,11 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 0;
   width: 100%;
 }
-.admin-page--home .admin-top { gap: 0; }
+/* Översikt och detaljvy: 24 px mellan toppbit, rubrik och innehåll. Startsidan har 32 px. */
+.admin-page:not(.admin-page--home) { gap: 24px; }
 
 .admin-container {
   width: 100%;
@@ -162,7 +163,8 @@
 .admin-back {
   display: inline-flex;
   align-items: center;
-  gap: 15px;
+  gap: 16px;
+  margin: 8px 0;              /* Toppsegment: py 8 runt knappen */
   padding: 8px 32px;
   border-radius: 8px;
   font-weight: 700;           /* Knapp */
@@ -210,7 +212,7 @@
 
 .admin-hero {
   width: 100%;
-  min-height: 386px;
+  min-height: 396px;
   background-color: var(--ljus-secondary);
   background-image: url('/images/hero-desktop.jpg');
   background-size: cover;
@@ -220,11 +222,12 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 732px;
-  max-width: 100%;
-  padding: 48px 56px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px;         /* Textblock: px 24 + text px 16, pt 48 */
 }
-.admin-hero__title { width: 606px; max-width: 100%; }
+.admin-hero__title { width: 499px; max-width: 100%; }
 .admin-hero__lead { width: 468px; max-width: 100%; font-size: 20px; line-height: 28px; }
 .admin-hero__cta { display: none; }
 
@@ -236,6 +239,7 @@
   gap: 24px;
   width: 100%;
   max-width: 1000px;
+  padding: 0 32px;
 }
 
 .workshop-row {
@@ -291,7 +295,7 @@
   background: var(--ljus-bg);
 }
 .summary__info { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
-.summary__stats { flex: 1 1 0; min-width: 0; display: flex; justify-content: flex-end; gap: 18px; }
+.summary__stats { flex: 0 0 418px; min-width: 0; display: flex; justify-content: flex-end; gap: 18px; }
 
 .stat {
   width: 200px;
@@ -309,7 +313,7 @@
 }
 .stat__icon { height: 74px; width: auto; object-fit: contain; }
 .stat__value { font-size: 24px; line-height: 32px; }
-.stat__label { font-size: 16px; line-height: 24px; white-space: nowrap; }
+.stat__label { font-size: 16px; line-height: 24px; white-space: nowrap; margin-top: -8px; }  /* siffra och etikett sitter ihop */
 
 .participants { display: flex; flex-direction: column; gap: 16px; }
 
@@ -372,6 +376,7 @@
 @media (max-width: 900px) {
   .workshop-row__info .admin-h2 { max-width: 288px; }
   .stat { width: 150px; padding: 16px 12px; }
+  .summary__stats { flex: 0 0 auto; }
 }
 
 /* ---------- Mobil (Figma: 402 px) ---------- */

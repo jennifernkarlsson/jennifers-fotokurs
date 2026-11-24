@@ -35,7 +35,7 @@ function BookingOverview() {
         <BackLink to="/admin">Ändra vald workshop</BackLink>
       </div>
 
-      <PageTitle eyebrow="BOKNINGAR" title="Bokningsöversikt" hideOnMobile />
+      <PageTitle eyebrow="WORKSHOPS" title="Bokningsöversikt" hideOnMobile />
 
       <section className="admin-container" aria-labelledby="workshop-title">
         <div className="summary">
@@ -44,7 +44,7 @@ function BookingOverview() {
             <ul className="info-list info-list--large">
               <li>
                 <img src="/icons/calendar.svg" alt="" width="30" height="30" />
-                <span>{workshop.dayLabel}</span>
+                <span>{workshop.dayLabel.replace(/ \d{4}$/, "")}</span>
               </li>
               <li>
                 <img src="/icons/clock.svg" alt="" width="30" height="30" />
