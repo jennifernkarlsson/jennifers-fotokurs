@@ -457,15 +457,17 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
   .summary {
     flex-direction: column;
     align-items: stretch;
+    gap: 16px;                  /* info → rutor */
     max-width: 352px;
     margin: 0 auto;
-    padding: 24px 16px;
+    padding: 24px;
     background: var(--ljus-card);
     border: 2px solid var(--ljus-secondary);
   }
   .summary .info-list img { display: none; }
   .summary .info-list--large li { font-size: 16px; line-height: 24px; }
-  .summary__stats { justify-content: flex-start; gap: 8px; }
+  .summary__stats { justify-content: flex-start; gap: 16px; }
+  .summary .admin-h2 { font-size: 20px; line-height: 28px; }   /* Medel rubrik */
   .stat {
     flex: 1 1 0;
     width: auto;
@@ -488,7 +490,7 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
   .only-narrow { display: inline; }
 
   .admin-mobile-actions { display: flex; flex-direction: column; gap: 8px; width: 100%; padding: 0 24px; margin-top: 16px; }
-  .admin-mobile-actions--stack { padding: 0 32px; margin-top: 16px; }
+  .admin-mobile-actions--stack { padding: 0 24px; margin-top: 16px; }
 
   /* Detaljer */
   .detail-card { border-width: 2px; }
