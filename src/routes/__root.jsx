@@ -17,17 +17,30 @@ function useScrollToTopOnNavigate() {
   }, [])
   useLayoutEffect(() => {
     if (location.hash) return
-    const top = () => window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    const top = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+      if (document.scrollingElement) document.scrollingElement.scrollTop = 0
+    }
     top()
-    // Safari på iPhone kan flytta sidan efter att den ritats; gör om det en gång till.
-    const id = requestAnimationFrame(top)
-    // ...och när tangentbordet har hunnit stänga (t.ex. efter ett formulär).
-    const late = setTimeout(() => {
-      if (window.scrollY < 120) top()
-    }, 400)
+    // Safari på iPhone kan flytta sidan en bit efter att den ritats (t.ex. när verktygsfältet
+    // eller tangentbordet ändrar storlek). Håll sidan högst upp en kort stund, tills man själv rör skärmen.
+    let stopped = false
+    let frame = 0
+    const stop = () => { stopped = true }
+    window.addEventListener('touchstart', stop, { passive: true, once: true })
+    window.addEventListener('wheel', stop, { passive: true, once: true })
+    const started = performance.now()
+    const tick = () => {
+      if (stopped || performance.now() - started > 900) return
+      if (window.scrollY !== 0 && window.scrollY < 150) top()
+      frame = requestAnimationFrame(tick)
+    }
+    frame = requestAnimationFrame(tick)
     return () => {
-      cancelAnimationFrame(id)
-      clearTimeout(late)
+      stopped = true
+      cancelAnimationFrame(frame)
+      window.removeEventListener('touchstart', stop)
+      window.removeEventListener('wheel', stop)
     }
   }, [location.pathname, location.searchStr, location.hash])
 }
