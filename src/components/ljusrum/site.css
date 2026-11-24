@@ -8,7 +8,7 @@
   align-items: center;
   padding: 0 0 48px;
 }
-.site-page.home { gap: 24px; }
+.site-page.home { gap: 32px; }
 .site-page .admin-top { gap: 0; }
 
 /* Bakåtlänk: 8 px luft ovanför och under, 32 px från kanten. */
@@ -113,26 +113,25 @@
 .course__card {
   display: flex;
   align-items: stretch;
-  gap: 24px;
+  gap: 32px;
   width: 100%;
   max-width: 1200px;
-  padding: 24px;
+  padding: 0 32px;
 }
 .course__image {
-  flex: 1 1 0;
+  flex: 12 1 0;               /* Figma: bild 576 px, text 528 px */
   max-width: 800px;
   min-height: 404px;
   background-size: cover;
   background-position: center;
 }
 .course__info {
-  flex: 1 1 0;
+  flex: 11 1 0;
   min-width: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 16px;
-  padding: 0 16px;
 }
 .course__meta { font-size: 20px; line-height: 28px; white-space: pre-wrap; }
 .course__text { display: flex; flex-direction: column; gap: 24px; }
@@ -141,15 +140,15 @@
 .course__more {
   display: flex;
   align-items: stretch;
-  gap: 24px;
+  gap: 32px;
   width: 100%;
   max-width: 1200px;
-  padding: 32px 24px;
+  padding: 32px;
   scroll-margin-top: 16px;
 }
 .course__map {
   flex: 1 1 0;
-  min-height: 503px;
+  min-height: 0;              /* sträcks till textens höjd */
   background-color: var(--ljus-secondary);
   background-size: cover;
   background-position: center;
@@ -159,9 +158,10 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 0 16px;
+  gap: 16px;
 }
+/* Plats, Det här ingår och Tid har 24 px mellan sig, resten 16 px. */
+.course__details > .detail-block:nth-child(-n+2) { margin-bottom: 8px; }
 
 /* ---------- Lediga tider ---------- */
 
@@ -201,7 +201,7 @@
 
 /* ---------- Slutför bokning ---------- */
 
-.book-card { display: flex; align-items: stretch; gap: 21px; margin-top: 24px; padding: 0 40px 24px; }
+.book-card { display: flex; align-items: stretch; gap: 32px; margin-top: 32px; padding: 0 40px 24px; }
 
 .book-summary {
   flex: 0 0 auto;
@@ -218,9 +218,9 @@
 .book-summary__body { display: flex; flex-direction: column; gap: 8px; }
 .book-summary__title { font-size: 20px; line-height: 28px; font-weight: 600; }
 
-.book-form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
-.book-form__title { padding: 8px 0; }
-.book-fields { display: flex; flex-direction: column; gap: 8px; }
+.book-form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.book-form__title { padding: 0; }
+.book-fields { display: flex; flex-direction: column; gap: 16px; }
 .field { display: flex; flex-direction: column; }
 .field label { font-weight: 600; line-height: 24px; }
 .field input {
@@ -234,7 +234,7 @@
 }
 .field input:focus { border-color: var(--ljus-primary); outline: none; box-shadow: 0 0 0 1px var(--ljus-primary); }
 .field input[aria-invalid='true'] { border-color: #9b2c1f; }
-.book-buttons { flex-direction: row; padding-top: 16px; }
+.book-buttons { flex-direction: row; gap: 8px; padding-top: 16px; }
 .book-buttons .site-btn { flex: 1 1 0; }
 
 /* ---------- Bokningsbekräftelse ---------- */
@@ -244,14 +244,13 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  padding: 24px;
+  padding: 32px 24px;
 }
 .done-box {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  margin-bottom: 8px;
   padding: 25px 31px;
   background: var(--ljus-secondary);
   border-radius: 4px;
@@ -334,7 +333,8 @@
     padding: 0;
   }
   .course__map { order: -1; flex: none; width: 100%; aspect-ratio: 354 / 222; }
-  .course__details { padding: 0; }
+  .course__details { padding: 0; gap: 24px; }
+  .course__details > .detail-block:nth-child(-n+2) { margin-bottom: 0; }
 
   /* Lediga tider */
   .times-intro { width: 100%; padding: 0 24px; }
