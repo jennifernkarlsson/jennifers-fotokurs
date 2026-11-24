@@ -70,12 +70,6 @@ function Home() {
         </div>
 
         <div className="course__more" id="las-mer">
-          <div
-            className="course__map"
-            style={{ backgroundImage: 'url(/images/karta.jpg)' }}
-            role="img"
-            aria-label="Karta över Södermalm med Ljusrums fotostudio på Bondegatan 45"
-          />
           <div className="course__details">
             <div className="detail-block">
               <h3>Plats</h3>
@@ -103,6 +97,12 @@ function Home() {
             </div>
             <SiteButton to="/lediga-tider">Se lediga tider</SiteButton>
           </div>
+          <div
+            className="course__map"
+            style={{ backgroundImage: 'url(/images/karta.jpg)' }}
+            role="img"
+            aria-label="Karta över Södermalm med Ljusrums fotostudio på Bondegatan 45"
+          />
         </div>
       </section>
     </SitePage>

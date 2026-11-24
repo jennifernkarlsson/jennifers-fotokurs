@@ -6,12 +6,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
   padding: 0 0 48px;
 }
 .site-page.home { gap: 24px; }
+.site-page .admin-top { gap: 0; }
 
-.site-back { padding: 8px 56px; }
+/* Bakåtlänk: 8 px luft ovanför och under, 32 px från kanten. */
+.site-back { gap: 16px; margin: 8px 0; padding: 8px 32px; }
 
 .only-wide-block { display: block; }
 .only-narrow-block { display: none; }
@@ -31,48 +32,43 @@
 }
 .site-btn--semibold { font-weight: 600; line-height: normal; }
 .site-buttons { display: flex; flex-direction: column; gap: 8px; width: 100%; }
-.site-buttons--row { flex-direction: row; }
+.site-buttons--row { flex-direction: row; gap: 16px; }
 .site-buttons--row .site-btn { flex: 1 1 0; }
 
-/* ---------- Bildhuvud ---------- */
+/* ---------- Bildhuvud (Lediga tider och Bokning) ---------- */
 
 .site-hero {
   width: 100%;
-  padding-bottom: 48px;
   background-color: var(--ljus-secondary);
   background-size: cover;
   background-position: center;
 }
-.site-hero__top {
+/* Texten linjerar med innehållet nedanför: 1000 px bred spalt med 40 px sidmarginal. */
+.site-hero__inner {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 48px 56px 0;
+  gap: 8px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 48px 40px;
 }
+.site-hero__top { display: flex; flex-direction: column; gap: 16px; }
 .site-hero__title { width: 499px; max-width: 100%; }
-.site-hero__lead {
-  width: 580px;
-  max-width: 100%;
-  margin-top: 8px;
-  padding: 0 56px;
-  font-size: 20px;
-  line-height: 28px;
-}
+.site-hero__lead { width: 468px; max-width: 100%; font-size: 20px; line-height: 28px; }
 
-/* ---------- Kort och listor ---------- */
+/* ---------- Innehållsytor och listor ---------- */
 
 .site-card {
   width: 100%;
-  max-width: 800px;
-  background: var(--ljus-card);
-  border: 1px solid var(--ljus-secondary);
+  max-width: 1000px;
 }
 .site-card--narrow {
   max-width: 600px;
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 24px;
+  margin-top: 32px;
+  padding: 0 24px;
 }
 
 .detail-block { display: flex; flex-direction: column; gap: 4px; }
@@ -89,16 +85,20 @@
 
 .home-hero {
   width: 100%;
+  min-height: 396px;
   background-color: var(--ljus-secondary);
   background-image: url('/images/hero-desktop.jpg');
   background-size: cover;
   background-position: center;
 }
+/* Texten linjerar med workshopkortet: 1200 px bred spalt, 24 + 16 px in. */
 .home-hero__text {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 48px 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px;
 }
 .home-hero__title { width: 499px; max-width: 100%; }
 .home-hero__lead { width: 468px; max-width: 100%; margin-top: -8px; font-size: 20px; line-height: 28px; }
@@ -118,9 +118,6 @@
   width: 100%;
   max-width: 1200px;
   padding: 24px;
-  background: var(--ljus-card);
-  border: 1px solid var(--ljus-secondary);
-  border-bottom: 0;
 }
 .course__image {
   flex: 1 1 0;
@@ -141,16 +138,14 @@
 .course__meta { font-size: 20px; line-height: 28px; white-space: pre-wrap; }
 .course__text { display: flex; flex-direction: column; gap: 24px; }
 
+/* Läs mer: text till vänster, karta till höger. */
 .course__more {
   display: flex;
   align-items: stretch;
   gap: 24px;
   width: 100%;
   max-width: 1200px;
-  padding: 64px 24px 32px;
-  background: var(--ljus-card);
-  border: 1px solid var(--ljus-secondary);
-  border-top: 0;
+  padding: 32px 24px;
   scroll-margin-top: 16px;
 }
 .course__map {
@@ -171,39 +166,43 @@
 
 /* ---------- Lediga tider ---------- */
 
-.times-card { display: flex; flex-direction: column; gap: 24px; padding: 24px 24px 32px; }
+.times-card { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; padding: 0 40px 32px; }
 
-.time-picker { display: flex; flex-direction: column; gap: 16px; margin: 0; padding: 0; border: 0; min-width: 0; }
-.time-picker__legend { float: left; width: 100%; padding: 0; font-size: 24px; line-height: 32px; font-weight: 600; }
-.time-picker__legend + * { clear: both; }
+.time-picker { margin: 0; padding: 0; border: 0; min-width: 0; }
+.time-picker__legend { width: 100%; margin-bottom: 16px; padding: 0; font-size: 24px; line-height: 32px; font-weight: 600; }
+.time-options { display: flex; gap: 16px; }
+.time-picker > .form-error { margin-top: 8px; }
 
+/* Figma-komponent Tidsval (kort): Default, hover och klick (vald). */
 .time-option {
   position: relative;
+  flex: 1 1 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  min-height: 40px;
-  padding: 0 10px;
-  background: var(--ljus-white);
-  border: 1px solid var(--ljus-secondary);
+  padding: 8px 10px;
+  background: var(--ljus-card);
+  border: 2px solid var(--ljus-secondary);
   border-radius: 4px;
-  color: #222;
-  font-weight: 700;
+  color: var(--ljus-primary);
   line-height: 24px;
+  text-align: center;
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: background-color 0.15s ease;
 }
-/* Figma-komponent Tidsval: Hover och Vald har beige bakgrund utan kantlinje. */
 .time-option:hover,
-.time-option.is-selected { background: var(--ljus-secondary); border-color: var(--ljus-secondary); }
+.time-option.is-selected { background: var(--ljus-secondary); }
 .time-option input { position: absolute; opacity: 0; pointer-events: none; }
 .time-option:has(input:focus-visible) { outline: 3px solid var(--ljus-primary); outline-offset: 2px; }
-.time-option__dot { line-height: normal; }
+.time-option__dot { font-weight: 700; }
+.time-option__text { display: flex; flex-direction: column; }
+.time-option__day { font-weight: 700; }
+.time-option__sep { display: none; }
 
 /* ---------- Slutför bokning ---------- */
 
-.book-card { display: flex; align-items: center; gap: 21px; padding: 24px; }
+.book-card { display: flex; align-items: stretch; gap: 21px; margin-top: 32px; padding: 0 40px 24px; }
 
 .book-summary {
   flex: 0 0 auto;
@@ -221,7 +220,7 @@
 .book-summary__body { display: flex; flex-direction: column; gap: 8px; }
 .book-summary__title { font-size: 20px; line-height: 28px; font-weight: 600; }
 
-.book-form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+.book-form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
 .book-form__title { padding: 8px 0; }
 .book-fields { display: flex; flex-direction: column; gap: 8px; }
 .field { display: flex; flex-direction: column; }
@@ -229,7 +228,7 @@
 .field input {
   height: 49px;
   padding: 0 12px;
-  background: #fbfafa;
+  background: var(--ljus-card);
   border: 1px solid var(--ljus-secondary);
   border-radius: 4px;
   font: inherit;
@@ -256,12 +255,13 @@
   margin-bottom: 8px;
   padding: 25px 31px;
   background: var(--ljus-secondary);
+  border-radius: 4px;
   color: var(--ljus-primary);
   text-align: center;
 }
 .done-box__title { margin: 0; font-size: 24px; line-height: 32px; font-weight: 600; }
 .done-box__number { font-weight: 600; }
-.done-card__button { margin: 10px 0; }
+.done-card__button { margin: 10px 0; padding-left: 40px; padding-right: 40px; }
 
 /* ---------- Surfplatta ---------- */
 
@@ -274,6 +274,7 @@
 
 @media (max-width: 680px) {
   .site-page { gap: 16px; }
+  .site-card--narrow { margin-top: 0; }
   .only-wide-block { display: none; }
   .only-narrow-block { display: block; }
   .site-btn.only-narrow { display: inline-flex; }
@@ -332,10 +333,8 @@
     gap: 16px;
     margin-top: 56px;
     padding: 0;
-    background: none;
-    border: 0;
   }
-  .course__map { flex: none; width: 100%; aspect-ratio: 354 / 222; }
+  .course__map { order: -1; flex: none; width: 100%; aspect-ratio: 354 / 222; }
   .course__details { padding: 0; }
 
   /* Lediga tider */
@@ -349,15 +348,29 @@
     background-size: cover;
     background-position: center;
   }
-  .times-card { gap: 88px; padding-top: 0; padding-bottom: 0; }
-  .time-picker { gap: 8px; }
-  .time-picker__legend { font-size: 20px; line-height: 28px; }
-  .time-option { background: var(--ljus-card); font-weight: 600; }
+  .times-card { gap: 88px; margin-top: 0; padding-top: 0; padding-bottom: 0; }
+  /* Mobil: Tidsval som rader med text på en rad. */
+  .time-options { flex-direction: column; gap: 8px; }
+  .time-picker__legend { margin-bottom: 8px; font-size: 20px; line-height: 28px; }
+  .time-option {
+    flex: none;
+    flex-direction: row;
+    gap: 4px;
+    min-height: 40px;
+    padding: 0 10px;
+    border-width: 1px;
+    color: #222;
+    font-weight: 600;
+  }
   .time-option:hover,
-  .time-option.is-selected { background: var(--ljus-secondary); }
+  .time-option.is-selected { border-color: var(--ljus-secondary); }
+  .time-option__dot { font-weight: 600; }
+  .time-option__text { display: inline; }
+  .time-option__day { font-weight: 600; }
+  .time-option__sep { display: inline; }
 
   /* Slutför bokning */
-  .book-card { flex-direction: column; align-items: stretch; gap: 16px; }
+  .book-card { flex-direction: column; align-items: stretch; gap: 16px; margin-top: 0; padding: 0 24px; }
   .book-summary { width: auto; min-height: 0; gap: 0; padding: 25px 33px; }
   .book-summary__body { gap: 0; }
   .book-form { gap: 16px; }
@@ -368,5 +381,5 @@
   /* Bekräftelse */
   .done-card { padding: 0 24px; gap: 16px; }
   .done-box { margin-bottom: 8px; padding: 24px 32px; }
-  .done-card__button { margin: 120px 0 0; }
+  .done-card__button { margin: 120px 0 0; padding-left: 8px; padding-right: 8px; }
 }

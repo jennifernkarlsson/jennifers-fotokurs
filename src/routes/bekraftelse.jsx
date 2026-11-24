@@ -19,7 +19,7 @@ function BookingConfirmation() {
     <SitePage className="done">
       <div className="admin-top">
         <SiteHeader />
-        <SiteBackLink to="/">Tillbaka startsidan</SiteBackLink>
+        <SiteBackLink to="/">Till startsidan</SiteBackLink>
       </div>
 
       {!workshop ? (
@@ -34,8 +34,12 @@ function BookingConfirmation() {
             <img src="/icons/verified.svg" alt="" width="61" height="61" />
             <h1 className="done-box__title">Din workshop är bokad!</h1>
             <p className="done-box__number">Bokningsnummer #{booking.id}</p>
-            <p>Workshop: {course.title}</p>
-            <p>{workshop.numericDate}: {workshop.time}</p>
+            <p>
+              Workshop<span className="only-wide"> • </span><span className="only-narrow">: </span>{course.title}
+            </p>
+            <p>
+              {workshop.numericDate}<span className="only-wide"> • </span><span className="only-narrow">: </span>{workshop.time}
+            </p>
           </div>
 
           <div className="detail-block">

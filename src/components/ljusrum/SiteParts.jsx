@@ -25,11 +25,13 @@ export function SiteBackLink({ children, ...linkProps }) {
 export function SiteHero({ image, eyebrow, title, children, className = '' }) {
   return (
     <section className={'site-hero ' + className} style={{ backgroundImage: `url(${image})` }}>
-      <div className="site-hero__top">
-        <p className="admin-eyebrow">{eyebrow}</p>
-        <h1 className="admin-h1 site-hero__title">{title}</h1>
+      <div className="site-hero__inner">
+        <div className="site-hero__top">
+          <p className="admin-eyebrow">{eyebrow}</p>
+          <h1 className="admin-h1 site-hero__title">{title}</h1>
+        </div>
+        {children && <div className="site-hero__lead">{children}</div>}
       </div>
-      {children && <div className="site-hero__lead">{children}</div>}
     </section>
   )
 }

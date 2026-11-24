@@ -115,8 +115,7 @@ function ConfirmBooking() {
                 Ändra tid
               </SiteButton>
               <SiteButton type="submit" className="site-btn--semibold">
-                <span className="only-wide">Slutför bokning</span>
-                <span className="only-narrow">Bekräfta bokning</span>
+                Bekräfta bokning
               </SiteButton>
             </div>
           </div>

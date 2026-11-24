@@ -33,7 +33,7 @@ function AvailableTimes() {
       </div>
 
       <SiteHero image="/images/lediga-tider-hero.jpg" eyebrow="TIDSBOKNING" title="Välj ett ledigt tillfälle" className="only-wide-block">
-        <p><strong>{course.title}</strong></p>
+        <p><strong>Workshop • {course.title}</strong></p>
         <p>{course.area} / {course.price}</p>
       </SiteHero>
 
@@ -47,9 +47,10 @@ function AvailableTimes() {
       <form className="site-card times-card" onSubmit={onSubmit} noValidate>
         <fieldset className="time-picker" aria-describedby={showError ? 'time-error' : undefined}>
           <legend className="time-picker__legend">
-            <span className="only-wide">Välj en ledig tid</span>
+            <span className="only-wide">Lediga workshoptider</span>
             <span className="only-narrow">Välj en ledig tid:</span>
           </legend>
+          <div className="time-options">
           {workshops.map((w) => (
             <label key={w.id} className={'time-option' + (selected === w.id ? ' is-selected' : '')}>
               <input
@@ -72,9 +73,14 @@ function AvailableTimes() {
                 }}
               />
               <span className="time-option__dot" aria-hidden="true">{selected === w.id ? '●' : '○'}</span>
-              <span>{w.optionLabel}</span>
+              <span className="time-option__text">
+                <span className="time-option__day">{w.dayShort}</span>
+                <span className="time-option__sep">: </span>
+                <span className="time-option__time">{w.time.replace(/ /g, '')}</span>
+              </span>
             </label>
           ))}
+          </div>
           {showError && (
             <p id="time-error" className="form-error" role="alert">Välj en tid för att gå vidare.</p>
           )}
