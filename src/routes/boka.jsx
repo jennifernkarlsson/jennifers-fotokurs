@@ -51,7 +51,7 @@ function ConfirmBooking() {
         <SiteBackLink to="/lediga-tider" search={{ tid }}>Tillbaka till lediga tider</SiteBackLink>
       </div>
 
-      <SiteHero image="/images/bokning-hero.jpg" eyebrow="BOKNING" title="Slutför din bokning" className="only-wide-block">
+      <SiteHero image="/images/bokning-hero.jpg" eyebrow="TIDSBOKNING" title="Slutför din bokning" className="only-wide-block">
         <p>Fyll i dina kontaktuppgifter och bekräfta din plats på workshopen.</p>
       </SiteHero>
 

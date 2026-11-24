@@ -52,7 +52,7 @@
   margin: 0 auto;
   padding: 48px 40px;
 }
-.site-hero__top { display: flex; flex-direction: column; gap: 16px; }
+.site-hero__top { display: flex; flex-direction: column; gap: 8px; }
 .site-hero__title { width: 499px; max-width: 100%; }
 .site-hero__lead { width: 468px; max-width: 100%; font-size: 20px; line-height: 28px; }
 
@@ -85,7 +85,6 @@
 
 .home-hero {
   width: 100%;
-  min-height: 396px;
   background-color: var(--ljus-secondary);
   background-image: url('/images/hero-desktop.jpg');
   background-size: cover;
@@ -95,13 +94,13 @@
 .home-hero__text {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 8px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 48px 40px;
 }
 .home-hero__title { width: 499px; max-width: 100%; }
-.home-hero__lead { width: 468px; max-width: 100%; margin-top: -8px; font-size: 20px; line-height: 28px; }
+.home-hero__lead { width: 468px; max-width: 100%; font-size: 20px; line-height: 28px; }
 
 .course {
   display: flex;
@@ -202,12 +201,11 @@
 
 /* ---------- Slutför bokning ---------- */
 
-.book-card { display: flex; align-items: stretch; gap: 21px; margin-top: 32px; padding: 0 40px 24px; }
+.book-card { display: flex; align-items: stretch; gap: 21px; margin-top: 24px; padding: 0 40px 24px; }
 
 .book-summary {
   flex: 0 0 auto;
   width: 330px;
-  min-height: 437px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -220,7 +218,7 @@
 .book-summary__body { display: flex; flex-direction: column; gap: 8px; }
 .book-summary__title { font-size: 20px; line-height: 28px; font-weight: 600; }
 
-.book-form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.book-form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; }
 .book-form__title { padding: 8px 0; }
 .book-fields { display: flex; flex-direction: column; gap: 8px; }
 .field { display: flex; flex-direction: column; }
@@ -236,7 +234,8 @@
 }
 .field input:focus { border-color: var(--ljus-primary); outline: none; box-shadow: 0 0 0 1px var(--ljus-primary); }
 .field input[aria-invalid='true'] { border-color: #9b2c1f; }
-.book-buttons { padding-top: 16px; }
+.book-buttons { flex-direction: row; padding-top: 16px; }
+.book-buttons .site-btn { flex: 1 1 0; }
 
 /* ---------- Bokningsbekräftelse ---------- */
 
@@ -374,6 +373,7 @@
   .book-summary { width: auto; min-height: 0; gap: 0; padding: 25px 33px; }
   .book-summary__body { gap: 0; }
   .book-form { gap: 16px; }
+  .book-buttons { flex-direction: column; }
   .book-fields { gap: 16px; }
   .field input { background: var(--ljus-card); }
   .book-buttons { padding-top: 72px; }
