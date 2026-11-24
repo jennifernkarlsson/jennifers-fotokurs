@@ -31,7 +31,6 @@ function BookingDetails() {
     ['Workshop', workshop.title],
     ['Bokat workshoptillfälle', `${workshop.shortDate}, ${workshop.time.replace(/ /g, '')}`],
     ['Antal', booking.count],
-    ['Bokningsnummer', `#${booking.id}`],
     ['Bokningsdatum', booking.bookedAt],
   ]
   const overview = { to: '/admin/workshop/$workshopId', params: { workshopId: workshop.id } }
