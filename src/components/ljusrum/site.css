@@ -339,7 +339,7 @@
     min-height: 100vh;
     min-height: 100svh;
     /* Bilden går upp under statusfältet/kamerafältet; menyn börjar 16 px nedanför det. */
-    padding-top: 82px;          /* 62 px statusfält + 20 px ovanför menyn (Figma) */
+    padding-top: 62px;          /* 62 px för iPhonens statusfält och kamera, som övriga sidor */
     background: var(--ljus-extra) url('/images/startsida-mobil.jpg') center / cover no-repeat;
   }
   .admin-header--overlay { border-bottom-color: var(--ljus-white); }
