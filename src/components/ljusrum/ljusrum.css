@@ -212,7 +212,7 @@
 
 .admin-hero {
   width: 100%;
-  min-height: 396px;
+  /* Hug: höjden följer texten, 48 px luft ovanför och under. */
   background-color: var(--ljus-secondary);
   background-image: url('/images/hero-desktop.jpg');
   background-size: cover;
