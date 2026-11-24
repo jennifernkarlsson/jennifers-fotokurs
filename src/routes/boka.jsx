@@ -70,7 +70,7 @@ function ConfirmBooking() {
             <div className="book-summary__body">
               <p className="book-summary__title">{course.title}</p>
               <div>
-                <p>{workshop.numericDate}: {workshop.time}</p>
+                <p>{workshop.numericDate} • {workshop.time}</p>
                 <p>
                   {course.area}
                   <span className="only-narrow"> / {course.price}</span>
