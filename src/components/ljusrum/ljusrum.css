@@ -444,7 +444,7 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
     line-height: 24px;
     font-weight: 500;
     letter-spacing: 1.28px;     /* Mobil: Sidtitel navigation */
-    color: var(--ljus-extra);
+    color: var(--ljus-secondary);   /* samma som linjerna mellan menyvalen */
   }
   .admin-nav__list { display: flex; flex-direction: column; }
   .ljusrum .admin-nav .admin-nav__item {
