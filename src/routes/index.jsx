@@ -57,7 +57,7 @@ function Home() {
                 Deltagare får öva på bländare, slutartid, ISO, fokus, ljus och komposition. Inga tidigare
                 fotokunskaper behövs.
               </p>
-              <p>Gruppstorlek: Max 10 deltagare</p>
+              <p>Gruppstorlek • Max 10 deltagare</p>
             </div>
             <div className="site-buttons">
               <SiteButton variant="light" href="#las-mer">
