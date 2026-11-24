@@ -331,7 +331,8 @@
   /* Övriga sidor: luft under statusfältet i sidans bakgrundsfärg. */
   .site-page { padding-top: calc(env(safe-area-inset-top, 0px) + 16px); }
   /* Safari färgar fältet med klocka och kamera efter sidans bakgrund: på startsidan bildens mörka ton. */
-  html:has(.site-page.home) { background-color: #51443a; }
+  html:has(.site-page.home),
+  html:has(.site-page.home) body { background-color: #51443a; }
   .site-page.home { padding-top: 0; gap: 16px; }
   .home-top {
     gap: 0;
