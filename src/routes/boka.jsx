@@ -41,6 +41,8 @@ function ConfirmBooking() {
       return
     }
     saveBooking({ workshopId: workshop.id, ...values })
+    // Stäng mobilens tangentbord först, annars kan nästa sida hamna förskjuten upptill.
+    document.activeElement?.blur()
     navigate({ to: '/bekraftelse' })
   }
 

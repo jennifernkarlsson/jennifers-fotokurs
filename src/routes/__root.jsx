@@ -21,7 +21,14 @@ function useScrollToTopOnNavigate() {
     top()
     // Safari på iPhone kan flytta sidan efter att den ritats; gör om det en gång till.
     const id = requestAnimationFrame(top)
-    return () => cancelAnimationFrame(id)
+    // ...och när tangentbordet har hunnit stänga (t.ex. efter ett formulär).
+    const late = setTimeout(() => {
+      if (window.scrollY < 120) top()
+    }, 400)
+    return () => {
+      cancelAnimationFrame(id)
+      clearTimeout(late)
+    }
   }, [location.pathname, location.searchStr, location.hash])
 }
 
