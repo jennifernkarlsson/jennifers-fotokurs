@@ -259,11 +259,16 @@
 }
 .done-box__title { margin: 0; font-size: 24px; line-height: 32px; font-weight: 600; }
 .done-box__number { font-weight: 600; }
-.done-info { display: flex; flex-direction: column; gap: 8px; width: 100%; margin: 0; padding: 0; list-style: none; }
+.done-info {                 /* Figma: 4 px mellan raderna, linje under, 16 px till förberedelserna */
+  display: flex; flex-direction: column; gap: 4px; width: 100%;
+  margin: 0 0 -8px; padding: 0 0 16px; list-style: none;
+  border-bottom: 1px solid var(--ljus-secondary);
+}
+.done-info strong { font-weight: 600; }
 .done-info li { display: flex; align-items: flex-start; gap: 8px; font-size: 16px; line-height: 24px; }
 .done-info img { flex-shrink: 0; margin-top: 2px; }
-.done-info strong { font-weight: 600; overflow-wrap: anywhere; }
-.done-card__button { margin: 10px 0; padding-left: 40px; padding-right: 40px; }
+.done-info span { overflow-wrap: anywhere; }
+.done-card__button { margin: 8px 0 0; padding-left: 40px; padding-right: 40px; }   /* 32 px under förberedelserna */
 
 /* ---------- Surfplatta ---------- */
 
@@ -440,7 +445,8 @@
   /* Bekräftelse */
   .done-card { padding: 0 24px; gap: 16px; }
   .done-box { margin-bottom: 8px; padding: 24px 32px; }
-  .done-card__button { width: 100%; margin: 18px 0 10px; padding-left: 8px; padding-right: 8px; }
+  .done-card__button { width: 100%; margin: 16px 0 0; padding-left: 8px; padding-right: 8px; }
+  .done-info { margin-bottom: 0; }
   .done-card { padding-top: 0; }
 }
 

@@ -46,17 +46,17 @@ function BookingConfirmation() {
               <li>
                 <img src="/icons/mail.svg" alt="" width="20" height="20" />
                 <span>
-                  En bekräftelse har skickats till <strong>{booking.email}</strong>.
+                  <strong>En bekräftelse har skickats till {booking.email}</strong>.
                 </span>
               </li>
             )}
             <li>
-              <img src="/icons/pin-small.svg" alt="" width="20" height="20" />
-              <span>{workshop.place}, {course.area}</span>
-            </li>
-            <li>
               <img src="/icons/cash.svg" alt="" width="20" height="20" />
               <span>Du betalar {course.price} på plats i fotostudion.</span>
+            </li>
+            <li>
+              <img src="/icons/pin-small.svg" alt="" width="20" height="20" />
+              <span>{workshop.place} • {course.area}</span>
             </li>
           </ul>
 
