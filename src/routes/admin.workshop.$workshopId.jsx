@@ -59,9 +59,18 @@ function BookingOverview() {
             </ul>
           </div>
 
+          {/* Ren information, ingen kortform: siffror, etiketter och en beläggningsstapel */}
           <div className="summary__stats">
-            <Stat icon="/images/booked.png" iconWidth={127} iconHeight={74} value={booked} label="Antal bokade" />
-            <Stat icon="/images/seats.png" iconWidth={109} iconHeight={73} value={free} label="Lediga platser" />
+            <Stat value={booked} label="bokade" />
+            <span className="stat-sep" aria-hidden="true" />
+            <Stat value={free} label={`lediga av ${workshop.capacity}`} />
+            <div
+              className="stat-bar"
+              role="img"
+              aria-label={`${booked} av ${workshop.capacity} platser bokade`}
+            >
+              <div style={{ width: `${Math.round((booked / workshop.capacity) * 100)}%` }} />
+            </div>
           </div>
         </div>
       </section>
@@ -113,11 +122,9 @@ function BookingOverview() {
   )
 }
 
-function Stat({ icon, iconWidth, iconHeight, value, label }) {
+function Stat({ value, label }) {
   return (
     <div className="stat">
-      <img className="stat__icon" src={icon} alt="" width={iconWidth} height={iconHeight} />
-      <img className="stat__divider" src="/icons/divider.svg" alt="" width="72" height="2" />
       <p className="stat__value">{value}</p>
       <p className="stat__label">{label}</p>
     </div>
