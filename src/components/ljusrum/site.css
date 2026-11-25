@@ -463,3 +463,9 @@
 @media (max-width: 767.98px) {
   .ljusrum .mobile-only-btn { display: flex; }
 }
+
+/* Lediga tider, desktop och surfplatta: knappen 400 px bred och mittställd (alternativ B) */
+@media (min-width: 768px) {
+  .times-card .site-buttons { justify-content: center; }
+  .times-card .site-buttons > .site-btn:not(.mobile-only-btn) { flex: 0 0 400px; width: 400px; max-width: 100%; }
+}
