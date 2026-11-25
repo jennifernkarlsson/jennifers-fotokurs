@@ -34,13 +34,10 @@ function BookingConfirmation() {
             <img src="/icons/verified.svg" alt="" width="61" height="61" />
             <h1 className="done-box__title">Din workshop är bokad!</h1>
             <p className="done-box__number">Bokningsnummer #{booking.id}</p>
-            <p>
-              Workshop • {course.title}
-            </p>
+            <p>{course.title}</p>
             <p>
               <span className="date-long">{workshop.date}</span><span className="date-short">{workshop.dateShort}</span> • {workshop.time}
             </p>
-            <p>{workshop.place}, {course.area}</p>
           </div>
 
           {/* Praktisk information: vart bekräftelsen skickats och hur man betalar */}
@@ -53,6 +50,10 @@ function BookingConfirmation() {
                 </span>
               </li>
             )}
+            <li>
+              <img src="/icons/pin-small.svg" alt="" width="20" height="20" />
+              <span>{workshop.place}, {course.area}</span>
+            </li>
             <li>
               <img src="/icons/cash.svg" alt="" width="20" height="20" />
               <span>Du betalar {course.price} på plats i fotostudion.</span>
