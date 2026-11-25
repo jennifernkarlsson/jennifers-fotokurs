@@ -12,7 +12,7 @@ export const workshops = [
     // Datumformat: "14 november 2026". Kort form där det inte får plats (Språkrådets förkortning): "14 nov. 2026".
     date: '14 november 2026',
     dateShort: '14 nov. 2026',
-    time: '10:00 - 15:00',
+    time: '10:00-15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
     image: '/images/workshop-1.jpg',
@@ -23,7 +23,7 @@ export const workshops = [
     // Datumformat: "21 november 2026". Kort form där det inte får plats (Språkrådets förkortning): "21 nov. 2026".
     date: '21 november 2026',
     dateShort: '21 nov. 2026',
-    time: '10:00 - 15:00',
+    time: '10:00-15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
     image: '/images/workshop-2.jpg',
@@ -34,7 +34,7 @@ export const workshops = [
     // Datumformat: "28 november 2026". Kort form där det inte får plats (Språkrådets förkortning): "28 nov. 2026".
     date: '28 november 2026',
     dateShort: '28 nov. 2026',
-    time: '10:00 - 15:00',
+    time: '10:00-15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
     image: '/images/workshop-3.jpg',

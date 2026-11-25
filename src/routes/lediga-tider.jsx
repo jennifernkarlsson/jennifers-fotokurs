@@ -74,7 +74,7 @@ function AvailableTimes() {
               <span className="time-option__text">
                 <span className="time-option__day">{w.date}</span>
                 <span className="time-option__sep">: </span>
-                <span className="time-option__time">{w.time.replace(/ /g, '')}</span>
+                <span className="time-option__time">{w.time}</span>
               </span>
             </label>
           ))}
