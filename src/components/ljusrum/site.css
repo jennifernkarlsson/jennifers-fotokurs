@@ -446,3 +446,10 @@
   .date-long { display: none; }
   .date-short { display: inline; }
 }
+
+/* Knappar som bara behövs på mobil (där bakåtlänken upptill saknas):
+   "Gå till startsidan" på Lediga tider och "Ändra tid" på Slutför din bokning */
+.ljusrum .mobile-only-btn { display: none; }
+@media (max-width: 767.98px) {
+  .ljusrum .mobile-only-btn { display: flex; }
+}

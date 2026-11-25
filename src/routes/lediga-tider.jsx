@@ -85,7 +85,7 @@ function AvailableTimes() {
         </fieldset>
 
         <div className="site-buttons site-buttons--row">
-          <SiteButton variant="light" to="/">Gå till startsidan</SiteButton>
+          <SiteButton variant="light" to="/" className="mobile-only-btn">Gå till startsidan</SiteButton>
           <SiteButton type="submit">
             Granska bokning
           </SiteButton>

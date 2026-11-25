@@ -121,7 +121,7 @@ function ConfirmBooking() {
               ))}
             </div>
             <div className="site-buttons book-buttons">
-              <SiteButton variant="light" to="/lediga-tider" search={{ tid }} className="site-btn--semibold">
+              <SiteButton variant="light" to="/lediga-tider" search={{ tid }} className="site-btn--semibold mobile-only-btn">
                 Ändra tid
               </SiteButton>
               <SiteButton type="submit" className="site-btn--semibold">
