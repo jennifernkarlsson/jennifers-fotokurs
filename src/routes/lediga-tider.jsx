@@ -34,12 +34,12 @@ function AvailableTimes() {
 
       <SiteHero image="/images/lediga-tider-hero.jpg" eyebrow="TIDSBOKNING" title="Välj ett ledigt tillfälle" className="only-wide-block">
         <p><strong>Workshop • {course.title}</strong></p>
-        <p>{course.area} / {course.price}</p>
+        <p>{course.area} • {course.price}</p>
       </SiteHero>
 
       <MobileHero image="/images/lediga-tider-mobil.jpg" eyebrow="TIDSBOKNING" title="Välj en ledig tid">
         <p><strong>{course.title}</strong></p>
-        <p>{course.area} / {course.price}</p>
+        <p>{course.area} • {course.price}</p>
       </MobileHero>
 
       <form className="site-card times-card" onSubmit={onSubmit} noValidate>

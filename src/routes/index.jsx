@@ -60,7 +60,7 @@ function Home() {
           <div className="course__info">
             <div className="course__heading">
               <h2 id="course-title" className="admin-h2">{course.title}</h2>
-              <p className="course__meta">{course.area}  / {course.price}</p>
+              <p className="course__meta">{course.area} • {course.price}</p>
             </div>
             <div className="course__text">
               <p>

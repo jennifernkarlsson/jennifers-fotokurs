@@ -85,7 +85,7 @@ function ConfirmBooking() {
                 <p>{workshop.date} • {workshop.time}</p>
                 <p>
                   {course.area}
-                  <span className="only-narrow"> / {course.price}</span>
+                  <span className="only-narrow"> • {course.price}</span>
                 </p>
                 <p className="only-wide-block">{course.price}</p>
                 <p>Betala på plats i fotostudion</p>
