@@ -35,7 +35,7 @@ function BookingConfirmation() {
             <h1 className="done-box__title">Din workshop är bokad!</h1>
             <p className="done-box__number">Bokningsnummer #{booking.id}</p>
             <p>
-              Workshop<span className="only-wide"> • </span><span className="only-narrow">: </span>{course.title}
+              Workshop • {course.title}
             </p>
             <p>
               <span className="date-long">{workshop.date}</span><span className="date-short">{workshop.dateShort}</span> • {workshop.time}
