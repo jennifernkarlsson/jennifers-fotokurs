@@ -87,8 +87,7 @@ function AvailableTimes() {
         <div className="site-buttons site-buttons--row">
           <SiteButton variant="light" to="/">Gå till startsidan</SiteButton>
           <SiteButton type="submit">
-            <span className="only-wide">Granska tider</span>
-            <span className="only-narrow">Granska bokning</span>
+            Granska bokning
           </SiteButton>
         </div>
       </form>
