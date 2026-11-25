@@ -231,9 +231,9 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
   flex-direction: column;
   gap: 8px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;          /* samma bredd och sidmarginal som workshopkorten nedan */
   margin: 0 auto;
-  padding: 48px 40px;         /* Textblock: px 24 + text px 16, pt 48 */
+  padding: 48px 32px;
 }
 .admin-hero__title { width: 499px; max-width: 100%; }
 .admin-hero__lead { width: 468px; max-width: 100%; font-size: 20px; line-height: 28px; }
@@ -375,6 +375,7 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
 
 @media (max-width: 1048px) {
   .workshop-list { padding: 0 24px; }
+  .admin-hero__text { padding-left: 24px; padding-right: 24px; }
 }
 
 @media (max-width: 900px) {
