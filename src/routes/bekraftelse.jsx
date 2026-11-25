@@ -70,7 +70,7 @@ function BookingConfirmation() {
             </ul>
           </div>
 
-          <SiteButton to="/" className="done-card__button">Gå till startsidan</SiteButton>
+          <SiteButton to="/" className="done-card__button mobile-only-btn">Gå till startsidan</SiteButton>
         </div>
       )}
     </SitePage>
