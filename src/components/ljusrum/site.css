@@ -215,7 +215,7 @@
   border-radius: 4px;
 }
 .book-summary__label { font-weight: 600; }
-.book-summary__body { display: flex; flex-direction: column; gap: 8px; }
+.book-summary__body { display: flex; flex-direction: column; gap: 4px; }   /* titel → detaljer (Figma) */
 .book-summary__title { font-size: 20px; line-height: 28px; font-weight: 600; }
 
 .book-form { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
