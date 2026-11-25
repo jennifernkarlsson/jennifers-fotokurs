@@ -439,3 +439,10 @@
   .done-card__button { width: 100%; margin: 18px 0 10px; padding-left: 8px; padding-right: 8px; }
   .done-card { padding-top: 0; }
 }
+
+/* Datum: "14 november 2026", på mycket smala skärmar "14 nov. 2026" där raden annars bryts */
+.date-short { display: none; }
+@media (max-width: 379.98px) {
+  .date-long { display: none; }
+  .date-short { display: inline; }
+}

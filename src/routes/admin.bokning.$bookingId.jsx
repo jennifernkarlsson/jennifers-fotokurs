@@ -29,7 +29,7 @@ function BookingDetails() {
     ['Namn', booking.name],
     ['E-post', booking.email],
     ['Workshop', workshop.title],
-    ['Bokat workshoptillfälle', `${workshop.shortDate}, ${workshop.time.replace(/ /g, '')}`],
+    ['Bokat workshoptillfälle', `${workshop.date}, ${workshop.time.replace(/ /g, '')}`],
     ['Antal', booking.count],
     ['Bokningsdatum', booking.bookedAt],
   ]

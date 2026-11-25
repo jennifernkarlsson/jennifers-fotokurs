@@ -45,8 +45,7 @@ function BookingOverview() {
               <li>
                 <img src="/icons/calendar.svg" alt="" width="30" height="30" />
                 <span>
-                  {workshop.dayLabel.replace(/ \d{4}$/, "")}
-                  <span className="only-narrow">{workshop.dayLabel.match(/ \d{4}$/)?.[0]}</span>
+                  {workshop.date}
                 </span>
               </li>
               <li>

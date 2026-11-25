@@ -38,7 +38,7 @@ function BookingConfirmation() {
               Workshop<span className="only-wide"> • </span><span className="only-narrow">: </span>{course.title}
             </p>
             <p>
-              {workshop.numericDate}<span className="only-wide"> • </span><span className="only-narrow">: </span>{workshop.time}
+              <span className="date-long">{workshop.date}</span><span className="date-short">{workshop.dateShort}</span><span className="only-wide"> • </span><span className="only-narrow">: </span>{workshop.time}
             </p>
           </div>
 

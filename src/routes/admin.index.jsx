@@ -57,7 +57,7 @@ function WorkshopRow({ workshop }) {
         <ul className="info-list">
           <li>
             <img src="/icons/calendar-small.svg" alt="" width="25" height="26" />
-            <span>{workshop.dayLabel}</span>
+            <span>{workshop.date}</span>
           </li>
           <li>
             <img src="/icons/clock-small.svg" alt="" width="24" height="24" />

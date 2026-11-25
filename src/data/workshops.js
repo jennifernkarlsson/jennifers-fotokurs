@@ -9,11 +9,9 @@ export const workshops = [
   {
     id: '14-november',
     title: 'Ta kontroll över din kamera',
-    dayLabel: 'Lördag 14 november 2026',
-    shortDate: '14 november 2026',
-    numericDate: '14/11/2026',
-    optionLabel: '14 november: 10:00-15:00',
-    dayShort: '14 november',
+    // Datumformat: "14 november 2026". Kort form där det inte får plats (Språkrådets förkortning): "14 nov. 2026".
+    date: '14 november 2026',
+    dateShort: '14 nov. 2026',
     time: '10:00 - 15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
@@ -22,11 +20,9 @@ export const workshops = [
   {
     id: '21-november',
     title: 'Ta kontroll över din kamera',
-    dayLabel: 'Lördag 21 november 2026',
-    shortDate: '21 november 2026',
-    numericDate: '21/11/2026',
-    optionLabel: '21 november: 10:00-15:00',
-    dayShort: '21 november',
+    // Datumformat: "21 november 2026". Kort form där det inte får plats (Språkrådets förkortning): "21 nov. 2026".
+    date: '21 november 2026',
+    dateShort: '21 nov. 2026',
     time: '10:00 - 15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
@@ -35,11 +31,9 @@ export const workshops = [
   {
     id: '28-november',
     title: 'Ta kontroll över din kamera',
-    dayLabel: 'Lördag 28 november 2026',
-    shortDate: '28 november 2026',
-    numericDate: '28/11/2026',
-    optionLabel: '28 november: 10:00-15:00',
-    dayShort: '28 november',
+    // Datumformat: "28 november 2026". Kort form där det inte får plats (Språkrådets förkortning): "28 nov. 2026".
+    date: '28 november 2026',
+    dateShort: '28 nov. 2026',
     time: '10:00 - 15:00',
     place: 'Ljusrums fotostudio',
     capacity: 10,
