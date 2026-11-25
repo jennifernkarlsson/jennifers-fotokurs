@@ -259,6 +259,10 @@
 }
 .done-box__title { margin: 0; font-size: 24px; line-height: 32px; font-weight: 600; }
 .done-box__number { font-weight: 600; }
+.done-info { display: flex; flex-direction: column; gap: 8px; width: 100%; margin: 0; padding: 0; list-style: none; }
+.done-info li { display: flex; align-items: flex-start; gap: 8px; font-size: 16px; line-height: 24px; }
+.done-info img { flex-shrink: 0; margin-top: 2px; }
+.done-info strong { font-weight: 600; overflow-wrap: anywhere; }
 .done-card__button { margin: 10px 0; padding-left: 40px; padding-right: 40px; }
 
 /* ---------- Surfplatta ---------- */

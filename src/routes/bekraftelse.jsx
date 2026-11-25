@@ -40,7 +40,24 @@ function BookingConfirmation() {
             <p>
               <span className="date-long">{workshop.date}</span><span className="date-short">{workshop.dateShort}</span> • {workshop.time}
             </p>
+            <p>{workshop.place}, {course.area}</p>
           </div>
+
+          {/* Praktisk information: vart bekräftelsen skickats och hur man betalar */}
+          <ul className="done-info">
+            {booking.email && (
+              <li>
+                <img src="/icons/mail.svg" alt="" width="20" height="20" />
+                <span>
+                  En bekräftelse har skickats till <strong>{booking.email}</strong>.
+                </span>
+              </li>
+            )}
+            <li>
+              <img src="/icons/cash.svg" alt="" width="20" height="20" />
+              <span>Du betalar {course.price} på plats i fotostudion.</span>
+            </li>
+          </ul>
 
           <div className="detail-block">
             <h2>Förbered dig inför workshopen</h2>
