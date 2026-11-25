@@ -313,10 +313,10 @@ html:has(.ljusrum) { background-color: #fbfaf9; }
 }
 /* Statistik som ren information (ingen kortform, så den inte ser klickbar ut) */
 .stat { display: flex; flex-direction: column; }
-.stat__value { font-size: 40px; line-height: 48px; font-weight: 600; }
+.stat__value { font-family: var(--font-display); font-size: 32px; line-height: 40px; font-weight: 700; }   /* Helvetica Neue Bold 32/40 */
 .stat__label { font-size: 16px; line-height: 24px; color: var(--ljus-extra); white-space: nowrap; }
 .stat-sep { align-self: stretch; background: var(--ljus-secondary); }
-.stat-bar { grid-column: 1 / -1; height: 8px; margin-top: 16px; background: var(--ljus-card); border-radius: 4px; overflow: hidden; }
+.stat-bar { grid-column: 1 / -1; height: 8px; margin-top: 16px; background: var(--ljus-secondary); border-radius: 4px; overflow: hidden; }
 .stat-bar > div { height: 100%; background: var(--ljus-extra); }
 
 .participants { display: flex; flex-direction: column; gap: 16px; }
